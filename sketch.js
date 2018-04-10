@@ -1,3 +1,13 @@
-d3.json("assets/costume_kmeans.json", function(data) {
-  console.log(data[0]);
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/costume_kmeans.json", 
+	function(data) {
+ 
+	data = data;
+
+	grouped = d3.nest()
+			.key(function(d) { return d.labels; })
+			.entries(data)
+
+	console.log(grouped)
+
+
 });
