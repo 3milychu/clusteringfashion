@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Marvel Characters | Force layout with images</title>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <title>Clustering Fashion with K-Means</title>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
     <style>
-      @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
+      @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
       body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; }
       path.link {
         fill: none;
@@ -28,9 +28,9 @@
 
 <body>
     <header>
-      <h1>Costume Institute</h1>
-      <h2>Item details</h2>
-      <h3>Visit at the MET</h3>
+      <h1>Clustering Fashion with K-Means</h1>
+      <h2></h2>
+      <h3></h3>
     </header>
     <!-- container for force layout visualisation  -->
     <section id="vis"></section> 
@@ -93,7 +93,7 @@ json.forEach(function(d){
         depthCursor = depthCursor[index].children;
         // This is a leaf, so add the last element to the specified branch
         if ( depth === levels.length - 1 ) depthCursor.push({ Title : d.Title, link : d.link, path : d.path, 
-          objectBegin : d.objectBegin, size : d.size });
+          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium });
     });
 });
 
@@ -182,8 +182,8 @@ function update() {
           // Append hero text
           .on( 'click', function (d) {
               d3.select("h1").html(d.Title); 
-              d3.select("h2").html(d.objectBegin); 
-              d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' target=_blank>"  + d.Title+ " web page ⇢"+ "</a>" ); 
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>"); 
            })
 
           .on( 'mouseenter', function() {
