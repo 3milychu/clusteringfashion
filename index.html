@@ -4,40 +4,28 @@
     <meta charset="utf-8">
     <title>Clustering Fashion with K-Means</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
-      body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; }
-      path.link {
-        fill: none;
-        stroke-width: 2px;
-      }
-      .node:not(:hover) .nodetext {
-        display: none;
-      }
-      h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
-      h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
-      header {padding: 20px; position: absolute; top: 0; left: 0;}
-      a:link { color: #EE3124; text-decoration: none;}
-      a:visited { color: #EE3124; }
-      a:hover { color: #A4CD39; text-decoration: underline;}
-      a:active { color: #EE3124; }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
     
 
 <body>
+    <div class="title">
+      <h4>Clustering Fashion with K-Means</h4>
+    </div>
+
     <header>
-      <h1>Clustering Fashion with K-Means</h1>
+      <h1></h1>
       <h2></h2>
       <h3></h3>
     </header>
     <!-- container for force layout visualisation  -->
     <section id="vis"></section> 
+
 <script>
 
 // some colour variables
-  var tcBlack = "#130C0E";
+var tcBlack = "#130C0E";
 
 // rest of vars
 var w = 1500,
@@ -50,7 +38,10 @@ var w = 1500,
 var vis;
 var force = d3.layout.force(); 
 
-vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
+vis = d3.select("#vis")
+  .append("svg")
+  .attr("width", w)
+  .attr("height", h);
  
 d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/bonnets.json", function(json) {
 
@@ -118,9 +109,8 @@ json.forEach(function(d){
 });
  
  
-/**
- *   
- */
+// functions
+
 function update() {
   var nodes = flatten(root),
       links = d3.layout.tree().links(nodes);
