@@ -1,17 +1,22 @@
 .title {
   text-align:center;
-  padding:5%;
+  padding:0%;
 }
 
-#vis{
-  width:50%;
-  height:80%;
+iframe {
+  width:140%;
+  height:220vh;
+  -webkit-transform:scale(0.4);
+  -moz-transform:scale(0.4);
+  overflow:hidden;
+  position:absolute;
+  margin-top:-32%;
+  margin-left:-38%;
 }
 
 body {
   font-family: "Source Code Pro", Consolas, monaco, monospace; 
-  line-height: 160%; 
-  font-size: 16px;  
+  font-size: 1em;  
   margin: 0; 
 }
 
@@ -25,26 +30,29 @@ path.link {
 }
 
 h4 { 
-  font-size: 36px; 
-  margin: 10px 0; 
+  font-size:1em; 
   text-transform: uppercase; 
   font-weight: bolder;
+  background-color:black;
+  color:white;
+  padding:0.5%;
+  margin:0;
 }
 
 h1 { 
-  font-size: 36px; 
+  font-size: 2.5em; 
   margin: 10px 0; 
   text-transform: uppercase; 
   font-weight: normal;
 }
 
 h2, h3 { 
-  font-size: 18px; 
-  margin: 5px 0 ; 
+  font-size: 1.5em; 
+  line-height:1em;
   font-weight: normal;}
 
 header {
-  padding: 5%;
+  padding: 0%;
   position: absolute; 
   top: 0; 
   left: 0;}
