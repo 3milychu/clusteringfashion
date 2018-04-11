@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 4000,
-    h = 5000,
+var w = 3900,
+    h = 4800,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/costume_kmeans.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/footwear.json", function(json) {
 
   var format = d3.format("");
 
@@ -145,7 +145,7 @@ function update() {
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-              d3.select("h1").html(d.Title+"s"); 
+              d3.select("h1").html(d.Title); 
               d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
               d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>"); 
            })
