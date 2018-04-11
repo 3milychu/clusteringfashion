@@ -2,10 +2,39 @@
 <html>
 <head>
 	<title>Clustering Fashion</title>
-	<script src="https://d3js.org/d3.v4.js"></script>
+  <meta charset="utf-8">
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script src='sketch.js'></script>
+
+	<style>
+      @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
+      body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; }
+      path.link {
+        fill: none;
+        stroke-width: 2px;
+      }
+      .node:not(:hover) .nodetext {
+        display: none;
+      }
+      h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
+      h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
+      header {padding: 20px; position: absolute; top: 0; left: 0;}
+      a:link { color: #EE3124; text-decoration: none;}
+      a:visited { color: #EE3124; }
+      a:hover { color: #A4CD39; text-decoration: underline;}
+      a:active { color: #EE3124; }
+    </style>
+
 </head>
 <body>
+
+	<header>
+      <h1>Costume Objects</h1>
+      <h2>Item details</h2>
+      <h3>Link to website</h3>
+    </header>
+    <!-- container for force layout visualisation  -->
+    <section id="vis"></section> 
 
 </body>
 </html>
