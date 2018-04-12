@@ -29,7 +29,8 @@ label:hover {
 }
 
 h5 {
-  font-size:2em;
+  font-size:1.2em;
+  line-height:2em;
 }
 
 h6 {
@@ -41,6 +42,21 @@ p {
   text-align:left;
   padding-right:5%;
   font-size:0.8em;
+}
+
+#map {
+  position:relative;
+}
+
+#map h5 {
+  position:absolute;
+  margin:5% 5% 10% 75%;
+  width:20%;
+}
+
+#map mark {
+  background-color:black;
+  color:white;
 }
 
 .media-holder {
@@ -128,6 +144,11 @@ iframe{
   width:220%;
   height:100%;
 }
+
+#all{
+  width:100%;
+}
+
 
 body {
   font-family: "Source Code Pro", Consolas, monaco, monospace; 
