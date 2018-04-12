@@ -29,7 +29,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != null});
+            return d.Title != null & d.Culture === "French"});
 
   // create children hierarchy json
 
