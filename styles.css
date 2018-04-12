@@ -106,12 +106,12 @@ iframe{
 #bonnets {
   width:130%;
   height:500vh;
-  -webkit-transform:scale(0.4);
-  -moz-transform:scale(0.4);
+  -webkit-transform:scale(0.5);
+  -moz-transform:scale(0.5);
   overflow:hidden;
   position:absolute;
-  margin-top:-1%;
-  margin-left:-30%;
+  margin-top:10%;
+  margin-left:-20%;
 }
 
 #bonnets iframe {
@@ -128,7 +128,7 @@ iframe{
   position:relative;
   top:0;
   margin-top:-23%;
-  margin-left:-25%;
+  margin-left:-28%;
 }
 
 #footwear iframe {
