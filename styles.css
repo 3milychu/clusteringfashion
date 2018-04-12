@@ -103,6 +103,12 @@ iframe{
   z-index:100;
 }
 
+.title label:hover {
+  color:white;
+  font-style:normal;
+  font-weight:400;
+}
+
 #bonnets {
   width:130%;
   height:500vh;
