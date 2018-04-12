@@ -3,15 +3,32 @@
   padding:0%;
 }
 
-#bonnets {
-  width:140%;
-  height:220vh;
-  -webkit-transform:scale(0.4);
-  -moz-transform:scale(0.4);
+.section {
+  width:100%;
   overflow:hidden;
-  position:absolute;
-  margin-top:-32%;
-  margin-left:-38%;
+}
+
+.scroll-post {
+    overflow-x: scroll;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling: touch;
+    height:100vh;
+}
+
+#bonnets {
+  width:130%;
+  height:220vh;
+  -webkit-transform:scale(0.35);
+  -moz-transform:scale(0.35);
+  overflow:hidden;
+  position:relative;
+  margin-left:-40%;
+  margin-top:-35%;
+}
+
+#bonnets iframe {
+  width:130%;
+  height:600px;
 }
 
 #footwear {
@@ -20,16 +37,14 @@
   -webkit-transform:scale(0.2);
   -moz-transform:scale(0.2);
   overflow:hidden;
-  position:absolute;
-  margin-top:-102%;
-  margin-left:-150%;
-
+  position:relative;
+  margin-top:-185%;
+  margin-left:-155%;
 }
 
 #footwear iframe {
   width:500%;
   height:1000px;
-
 }
 
 body {
@@ -57,7 +72,6 @@ h4 {
   padding:0.5%;
   margin:0;
   width:100%;
-  overflow:visible;
 }
 
 h1 { 
