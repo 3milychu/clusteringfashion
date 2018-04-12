@@ -14,6 +14,14 @@
   color:white;
 }
 
+em {
+  font-style:normal;
+  font-weight:600;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:0.8em;
+}
+
 mark {
   background-color:white;
   color:black;
