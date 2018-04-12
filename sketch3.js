@@ -147,7 +147,11 @@ function update() {
           .on( 'click', function (d) {
               d3.select("h1").html(d.Title); 
               d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>"); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              d3.select("#featured").append("svg:image")
+                .attr("xlink:href", d.path)
+                .attr("height", 50)
+                .attr("width", 50) ; 
            })
 
           .on( 'mouseenter', function() {
@@ -172,6 +176,7 @@ function update() {
   // Append hero name on roll over next to the node as well
   nodeEnter.append("text")
       .attr("class", "nodetext")
+      .attr("font-size", "3em")
       .attr("x", x_browser)
       .attr("y", y_browser +15)
       .attr("fill", tcBlack)

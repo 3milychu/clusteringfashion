@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Clustering Fashion with K-Means</title>
+    <title>Clustering Fashion without Color in K-Means</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -12,35 +12,51 @@
 <!-- Header -->
 
     <div class="title">
-      <h4>Clustering Fashion with K-Means</h4>
+      <h4>Clustering Fashion without Color in K-Means</h4>
     </div>
 
 <!-- Begin Visualizations -->
 
 <div class="section">
+  
   <div class="scroll-post">
 
-    <iframe id="bonnets" src="bonnets.html" scrolling="no" frameBorder="0"></iframe>
-    <iframe id="footwear" src="footwear.html" scrolling="no" frameBorder="0"></iframe>
-    
+    <div class="media-holder" id="section1">
+        <iframe id="bonnets" src="bonnets.html" scrolling="no" frameBorder="0"></iframe>
+    </div>
+
+    <div class="media-holder" id="section3">
+        <iframe id="footwear" src="footwear.html" scrolling="no" frameBorder="0"></iframe>
+    </div>
+        
   </div>
+
 </div>
 
-<div class="clear" style="padding:1%;"></div>
+<div class="clear"></div>
 <!-- Text -->
 
 <div class="content">
 
-  <div class="title">
-    <h4>Hello.</h4>
+  <div class="section">
+
+    <div class="side-column" style="float:left;"">
+      <h5><mark>A Colorblind Approach to Fashion Object Recognition</mark></h5>
+        <p>What if we couldn't see color? How would we, for example, classify fashion objects solely on the basis of their spatial composition?
+        <br><br>
+        This project uses k-means, a statistical model to classify objects from the Metropolitan Museum of Art's  7.6k Costume Institute items. The model was built using machine learning, as an unsupervised learning task.
+      </p>
+    </div>
+
+    <div class="side-column">
+      <div class="video">
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/gALoeClOfqk?vq=hd1080&amp;rel=0&amp;showinfo=0&amp;autoplay=1&amp;mute=1" frameborder="0" encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+
   </div>
 
-  <p>Some text here.
-  </p>
-
 </div>
-
-<script type="text/javascript" src="sketch.js"></script>
 
 </body>
 </html>
