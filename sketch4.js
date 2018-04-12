@@ -28,7 +28,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.bodyclass1 === "feet" & d.Title != null});
+            return d.Title != null});
 
   // create children hierarchy json
 
