@@ -18,7 +18,7 @@ vis = d3.select("#vis")
   .attr("height", h)
   // .style('filter', 'url(#grayscale)');
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/top_acc.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/hand.json", function(json) {
 
   var format = d3.format("");
 
