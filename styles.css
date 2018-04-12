@@ -5,6 +5,10 @@
   padding:1%;
 }
 
+.node image {
+  filter:grayscale(100%);
+}
+
 .content {
   background-color:black;
   color:white;
