@@ -18,7 +18,7 @@ vis = d3.select("#vis")
   .attr("height", h)
   // .style('filter', 'url(#grayscale)');
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/hand.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/wrist.json", function(json) {
 
   var format = d3.format("");
 
@@ -29,7 +29,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != null & d.Culture === "French"});
+            return d.Title != null});
 
   // create children hierarchy json
 
