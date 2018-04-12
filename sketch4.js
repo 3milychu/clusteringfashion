@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 4500,
-    h = 5500,
+var w = 2000,
+    h = 2000,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/headwear.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/wrist.json", function(json) {
 
   var format = d3.format("");
 
