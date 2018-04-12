@@ -2,9 +2,16 @@
   text-align:center;
 }
 
-mark {
-
+.content {
+  background-color:black;
+  color:white;
 }
+
+mark {
+  background-color:white;
+  color:black;
+}
+
 
 h5 {
   font-size:2em;
@@ -32,8 +39,8 @@ p {
 
 .scroll-post {
   margin-top:-75%;
-  margin-left:-58%;
-  width:160%;
+  margin-left:0%;
+  width:120%;
   position:relative;
   white-space: nowrap;
   overflow-x: scroll;
@@ -43,7 +50,7 @@ p {
 }
 
 .video {
-  margin-top:5%;
+  padding:2% 0% 2% 6%;
 }
 
 iframe{
@@ -58,6 +65,7 @@ iframe{
   overflow:hidden;
   position:absolute;
   margin-top:-1%;
+  margin-left:-30%;
 }
 
 #bonnets iframe {
@@ -80,18 +88,18 @@ iframe{
 
 
 #footwear {
-  width:200%;
+  width:220%;
   height:500vh;
   -webkit-transform:scale(0.2);
   -moz-transform:scale(0.2);
   overflow:hidden;
   position:relative;
-  margin-top:-18%;
-  margin-left:0%;
+  margin-top:-23%;
+  margin-left:-25%;
 }
 
 #footwear iframe {
-  width:200%;
+  width:220%;
   height:1000px;
 }
 
