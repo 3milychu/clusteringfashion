@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 11000,
-    h = 11000,
+var w = 15000,
+    h = 18000,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
