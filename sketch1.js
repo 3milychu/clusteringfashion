@@ -140,8 +140,7 @@ function update() {
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
-        .attr("width", 50)
-        .style('filter', 'url(#grayscale)');
+        .attr("width", 50);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
