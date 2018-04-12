@@ -20,9 +20,13 @@ mark {
 }
 
 label {
-  float:left;
+/*  float:left;*/
 }
 
+label:hover {
+  color:teal;
+  font-weight:600;
+}
 
 h5 {
   font-size:2em;

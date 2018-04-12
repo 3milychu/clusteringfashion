@@ -137,7 +137,6 @@ function update() {
         .attr("xlink:href",  function(d) { return d.path;})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
-        .style("filter", "grayscale(100%)")
         .attr("height", 50)
         .attr("width", 50);
 

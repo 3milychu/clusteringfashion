@@ -15,7 +15,8 @@ var force = d3.layout.force();
 vis = d3.select("#vis")
   .append("svg")
   .attr("width", w)
-  .attr("height", h);
+  .attr("height", h)
+  // .style('filter', 'url(#grayscale)');
  
 d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/bonnets.json", function(json) {
 
@@ -139,7 +140,8 @@ function update() {
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
         .attr("height", 50)
-        .attr("width", 50);
+        .attr("width", 50)
+        .style('filter', 'url(#grayscale)');
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images

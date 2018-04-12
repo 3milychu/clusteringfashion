@@ -6,19 +6,40 @@
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script>
+      function convert1() {
+        d3.selectAll("image")
+          .style('filter', 'none');
+      }
+      function convert2() {
+        d3.selectAll("image")
+          .style('filter', 'url(#grayscale');
+      }
+    </script>
+
 </head>
     
 
 <body>
 
     <header style="margin-left:5%;">
-      <h4 style="font-size:2.5em;">Before 16th century</h4>
+      <h4 style="font-size:2.5em;"><= 16th century</h4>
+      <label style="font-size:1.2em;line-height:1.2em;display:inline;cursor:pointer;" onclick="convert1();">Color</label>
+       <label style="font-size:1.2em;line-height:1.2em;display:inline;">|</label>
+      <label style="font-size:1.2em;line-height:1.2em;display:inline;cursor:pointer;" onclick="convert2();">Grayscale</label><br><br>
       <h1 style="font-size:1.5em;"></h1>
       <h2  style="font-size:1.5em;"">Click an item to explore</h2>
       <h3 style="font-size:1.5em;""></h3>
     </header>
     <!-- container for force layout visualisation  -->
     <section id="vis"></section> 
+
+    <svg x=0 y=0 width=500 height=500>
+     <filter id="grayscale">
+      <feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
+     </filter>
+    </svg>
 
 <script type="text/javascript" src="sketch4.js"></script>
 
