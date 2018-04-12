@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 2000,
-    h = 2000,
+var w = 2800,
+    h = 2500,
     maxNodeSize = 50,
     x_browser = 20,
     y_browser = 25,
@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/wrist.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century.json", function(json) {
 
   var format = d3.format("");
 
@@ -131,15 +131,16 @@ function update() {
   nodeEnter.append("svg:circle")
       .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
       .style("fill", "#eee");
- 
-   
+
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return d.path;})
         .attr("x", function(d) { return -25;})
         .attr("y", function(d) { return -25;})
+        .style("filter", "grayscale(100%)")
         .attr("height", 50)
         .attr("width", 50);
+
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images

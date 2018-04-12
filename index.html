@@ -6,13 +6,22 @@
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+      function convert() {
+        d3.selectAll("image")
+          .style('filter', 'grayscale(100%)');
+      }
+    </script>
+
 </head>
 <body>
 
 <!-- Header -->
 
     <div class="title">
-      <h4>Clustering Fashion without Color in K-Means</h4>
+     <label id="label" style="display:inline;cursor:pointer;" onclick="convert();">Turn on Color</label><h4 style="display:inline;">Clustering Fashion without Color in K-Means</h4>
     </div>
 
 <!-- Begin Visualizations -->
@@ -27,6 +36,10 @@
 
     <div class="media-holder" id="section3">
         <iframe id="footwear" src="footwear.html" scrolling="no" frameBorder="0"></iframe>
+    </div>
+
+    <div class="media-holder" id="section2">
+        <iframe id="century" src="16thcentury.html" scrolling="no" frameBorder="0"></iframe>
     </div>
         
   </div>

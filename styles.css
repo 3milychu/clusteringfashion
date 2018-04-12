@@ -1,5 +1,8 @@
 .title {
   text-align:center;
+  background-color:black;
+  color:white;
+  padding:1%;
 }
 
 .content {
@@ -10,6 +13,10 @@
 mark {
   background-color:white;
   color:black;
+}
+
+label {
+  float:left;
 }
 
 
@@ -24,10 +31,16 @@ h6 {
 
 p {
   text-align:left;
+  padding-right:5%;
+}
+
+.media-holder {
+/*  display:inline-grid;*/
 }
 
 .section {
   width:100%;
+  height:100%;
   overflow:hidden;
 }
 
@@ -70,22 +83,8 @@ iframe{
 
 #bonnets iframe {
   width:130%;
+  height:100%;
 }
-
-#headwear {
-  width:300%;
-  height:500vh;
-  -webkit-transform:scale(0.2);
-  -moz-transform:scale(0.2);
-  overflow:hidden;
-  position:relative;
-}
-
-#headwear iframe {
-  width:200%;
-  height:600px;
-}
-
 
 #footwear {
   width:220%;
@@ -94,13 +93,31 @@ iframe{
   -moz-transform:scale(0.2);
   overflow:hidden;
   position:relative;
+  top:0;
   margin-top:-23%;
   margin-left:-25%;
 }
 
 #footwear iframe {
   width:220%;
-  height:1000px;
+  height:100%;
+}
+
+#century {
+  width:220%;
+  height:300vh;
+  -webkit-transform:scale(0.4);
+  -moz-transform:scale(0.4);
+  overflow:hidden;
+  position:absolute;
+  margin-top:-172%;
+  margin-left:45%;
+
+}
+
+#century iframe {
+  width:220%;
+  height:100%;
 }
 
 body {
@@ -127,12 +144,12 @@ h4 {
   font-size:1em; 
   text-transform: uppercase; 
   font-weight: bolder;
-  background-color:black;
-  color:white;
   padding:0.5%;
   margin:0;
   width:100%;
 }
+
+
 
 h1 { 
   font-size: 2.5em; 
