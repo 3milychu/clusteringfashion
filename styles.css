@@ -1,13 +1,3 @@
- @media screen and (max-width:1000px) {
-  .scroll-post {
-      height:50vh;
-  }
-  .media-holder {
-    width:80%;
-  }
-
- }
-
 .title {
   text-align:center;
   background-color:black;
@@ -79,7 +69,6 @@ p {
 
 .section {
   width:100%;
-  height:100%;
   overflow:hidden;
 }
 
@@ -196,4 +185,26 @@ a:hover {
 
 a:active { 
   color: #EE3124; }
+
+/*Mobile*/
+
+ @media screen and (max-width:1000px) {
+  .scroll-post {
+      height:50%;
+  }
+  .media-holder {
+    width:100%;
+    display:block;
+  }
+  .side-column{
+    display:block;
+    margin:auto;
+    width:80%;
+    padding-left:10%;
+  }
+  .video {
+    width:100%;
+  }
+
+ }
 
