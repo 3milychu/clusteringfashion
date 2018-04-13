@@ -1,3 +1,13 @@
+ @media screen and (max-width:1000px) {
+  .scroll-post {
+      height:50vh;
+  }
+  .media-holder {
+    width:80%;
+  }
+
+ }
+
 .title {
   text-align:center;
   background-color:black;
@@ -119,21 +129,6 @@ p {
   padding-left:10%;
 }
 
-/*#bonnets {
-  -webkit-transform:scale(0.5);
-  -moz-transform:scale(0.5);
-}
-
-#footwear {
-  -webkit-transform:scale(0.2);
-  -moz-transform:scale(0.2);
-}
-
-#century {
-  -webkit-transform:scale(0.4);
-  -moz-transform:scale(0.4);
-}*/
-
 
 #all{
   width:100%;
@@ -158,11 +153,6 @@ path.link {
 .node:not(:hover) .nodetext {
   display: none;
 }
-
-/*.nodetext {
-  font-size:3em;
-  z-index:1000;
-}*/
 
 h4 { 
   font-size:1em; 
