@@ -5,6 +5,11 @@
   padding:2%;
 }
 
+#featured img{
+  width:50px;
+  max-height:100px;
+}
+
 .node image {
   filter:grayscale(100%);
 }
@@ -12,6 +17,11 @@
 .content {
   background-color:black;
   color:white;
+}
+
+#all{
+  width:100%;
+  margin-left:20%;
 }
 
 em {
@@ -25,20 +35,24 @@ em {
 mark {
   background-color:white;
   color:black;
+  padding:1%;
 }
 
 label {
-/*  float:left;*/
+  color:#EE3124;
 }
 
 label:hover {
-  color:teal;
+  color:#AB9A84;
   font-weight:600;
+  text-decoration:underline;
 }
+
 
 h5 {
   font-size:1.2em;
   line-height:2em;
+  text-transform:uppercase;
 }
 
 h6 {
@@ -54,6 +68,9 @@ p {
 
 #map {
   position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
 }
 
 #map h5 {
@@ -137,11 +154,13 @@ p {
   padding-left:10%;
 }
 
-
-#all{
+#map iframe {
+  position:absolute;
+  top:0;
+  left:0;
   width:100%;
+  height:100%;
 }
-
 
 body {
   font-family: "Source Code Pro", Consolas, monaco, monospace; 
@@ -199,11 +218,101 @@ a:visited {
   color: #EE3124; }
 
 a:hover { 
-  color: #A4CD39; 
+  color: #AB9A84; 
   text-decoration: underline;}
 
 a:active { 
   color: #EE3124; }
+
+.callout {
+  margin-top:15%;
+  margin-left: 10%;
+  position:absolute;
+  width:30%;
+}
+
+.callout p{
+  padding: 5% 0% 5% 0%;
+  font-size:0.8em;
+  width:80%;
+}
+
+.launch {
+  font-family: "Source Code Pro", Consolas, monaco, monospace;
+  width:100%;
+  cursor:pointer;
+  font-size:2em;
+  font-weight:400;
+  text-transform:uppercase;
+  color:#EE3124;
+  letter-spacing: 0.05em;
+}
+
+.launch:hover {
+  color: #AB9A84;
+}
+
+.typewriter {
+  width:100%;
+}
+
+/*Typewriter*/
+
+.typewriter #subtitle1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+/*  margin: 0 auto;*/ /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  font-size:1em;
+  animation: 
+    typing 4s steps(40, end) infinite
+}
+
+.typewriter #subtitle2 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+/*  margin: 0 auto;*/ /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  font-size:1em;
+  animation: 
+    typing_2 4s steps(40, end) infinite
+}
+
+.typewriter #subtitle3 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+/*  margin: 0 auto;*/ /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  font-size:1em;
+  animation: 
+    typing_3 4s steps(40, end) infinite
+}
+
+
+/* The typing effect */
+@keyframes typing {
+ 0% { width: 0 }
+  20% {width:70% }
+  40% { width: 70% }
+  80% { width: 70% }
+  100% { width: 70% }
+}
+
+@keyframes typing_2 {
+  0% { width: 0 }
+  20% {width:0 }
+  40% { width: 45% }
+  80% { width: 45% }
+  100% { width: 45% }
+}
+
+@keyframes typing_3 {
+  0% { width: 0 }
+  20% {width:0 }
+  40% { width: 0% }
+  80% { width: 45% }
+  100% { width: 45% }
+}
 
 /*Mobile*/
 

@@ -2,9 +2,9 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 15000,
-    h = 18000,
-    maxNodeSize = 50,
+var w = 1200,
+    h = 1300,
+    maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
     root;
@@ -93,8 +93,8 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-1500)
-    .linkDistance(100)
+    .charge(-10)
+    .linkDistance(2)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
@@ -129,17 +129,17 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 60 || 1.5; })
       .style("fill", "#eee");
  
    
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return d.path;})
-        .attr("x", function(d) { return -25;})
-        .attr("y", function(d) { return -25;})
-        .attr("height", 50)
-        .attr("width", 50);
+        .attr("x", function(d) { return -5;})
+        .attr("y", function(d) { return -5;})
+        .attr("height", 10)
+        .attr("width", 10);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
@@ -148,38 +148,36 @@ function update() {
               d3.select("h1").html(d.Title); 
               d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
               d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-              d3.select("#featured").append("svg:image")
-                .attr("xlink:href", d.path)
-                .attr("height", 50)
-                .attr("width", 50) ; 
+              d3.select("#featured").html("<img src='" + d.path + "'>")
            })
 
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -60;})
-              .attr("y", function(d) { return -60;})
-              .attr("height", 100)
-              .attr("width", 100);
+              .attr("x", function(d) { return -10;})
+              .attr("y", function(d) { return -10;})
+              .attr("height", 20)
+              .attr("width", 20);
           })
           // set back
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -25;})
-              .attr("y", function(d) { return -25;})
-              .attr("height", 50)
-              .attr("width", 50);
+              .attr("x", function(d) { return -5;})
+              .attr("y", function(d) { return -5;})
+              .attr("height", 10)
+              .attr("width", 10);
           });
 
   // Append hero name on roll over next to the node as well
   nodeEnter.append("text")
       .attr("class", "nodetext")
-      .attr("font-size", "3em")
-      .attr("x", x_browser)
+      .attr("x", x_browser -35)
       .attr("y", y_browser +15)
       .attr("fill", tcBlack)
+      .style("font-size","0.5em")
+      .style("z-index","101")
       .text(function(d) { return d.Culture + ", " + d.objectBegin; });
  
  
@@ -188,7 +186,8 @@ function update() {
  
  
   // Re-select for update.
-  path = vis.selectAll("path.link");
+  path = vis.selectAll("path.link")
+      .style("stroke-width","0.3px");
   node = vis.selectAll("g.node");
  
 function tick() {
