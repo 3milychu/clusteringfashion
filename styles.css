@@ -2,7 +2,7 @@
   text-align:center;
   background-color:black;
   color:white;
-  padding:1%;
+  padding:2%;
 }
 
 .node image {
@@ -67,10 +67,6 @@ p {
   color:white;
 }
 
-.media-holder {
-/*  display:inline-grid;*/
-}
-
 .section {
   width:100%;
   height:100%;
@@ -84,23 +80,17 @@ p {
 }
 
 .scroll-post {
-  margin-top:-75%;
   margin-left:0%;
-  width:120%;
   position:relative;
   white-space: nowrap;
   overflow-x: scroll;
   overflow-y:hidden;
   -webkit-overflow-scrolling: touch;
-  height:240vh;
+  height:100vh;
 }
 
 .video {
   padding:2% 0% 2% 6%;
-}
-
-iframe{
-  z-index:100;
 }
 
 .title label:hover {
@@ -109,55 +99,41 @@ iframe{
   font-weight:400;
 }
 
-#bonnets {
-  width:130%;
-  height:500vh;
-  -webkit-transform:scale(0.5);
-  -moz-transform:scale(0.5);
+.media-holder {
+  position:relative;
+  width:60%;
+  padding-bottom:75%;
+  height:0;
   overflow:hidden;
-  position:absolute;
-  margin-top:10%;
-  margin-left:-20%;
+  display:inline-grid;
+  padding-left:5%;
 }
 
-#bonnets iframe {
-  width:130%;
+.media-holder iframe {
+  position:absolute;
+  top:2%;
+  left:0;
+  width:100%;
   height:100%;
+  padding:3%;
+  padding-left:10%;
+}
+
+/*#bonnets {
+  -webkit-transform:scale(0.5);
+  -moz-transform:scale(0.5);
 }
 
 #footwear {
-  width:220%;
-  height:500vh;
   -webkit-transform:scale(0.2);
   -moz-transform:scale(0.2);
-  overflow:hidden;
-  position:relative;
-  top:0;
-  margin-top:-23%;
-  margin-left:-28%;
-}
-
-#footwear iframe {
-  width:220%;
-  height:100%;
 }
 
 #century {
-  width:220%;
-  height:300vh;
   -webkit-transform:scale(0.4);
   -moz-transform:scale(0.4);
-  overflow:hidden;
-  position:absolute;
-  margin-top:-172%;
-  margin-left:45%;
+}*/
 
-}
-
-#century iframe {
-  width:220%;
-  height:100%;
-}
 
 #all{
   width:100%;
@@ -173,6 +149,10 @@ body {
 path.link {
   fill: none;
   stroke-width: 2px;
+}
+
+.nodetext {
+  font-size:0.8em;
 }
 
 .node:not(:hover) .nodetext {
