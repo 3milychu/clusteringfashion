@@ -58,7 +58,7 @@ json.forEach(function(d){
         depthCursor = depthCursor[index].children;
         // This is a leaf, so add the last element to the specified branch
         if ( depth === levels.length - 1 ) depthCursor.push({ Title : d.Title, link : d.link, path : d.path, 
-          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium });
+          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, labels: d.labels });
     });
 });
 
@@ -145,7 +145,7 @@ function update() {
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-              d3.select("h1").html(d.Title); 
+              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
               d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
               d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
               d3.select("#featured").html("<img src='" + d.path + "'>")
@@ -178,7 +178,7 @@ function update() {
       .attr("fill", tcBlack)
       .style("font-size","0.5em")
       .style("z-index","101")
-      .text(function(d) { return d.Culture + ", " + d.objectBegin; });
+      .text(function(d) { return "#" + d.labels + ": " + d.Title + ", " + d.objectBegin; });
  
  
   // Exit any old nodes.
