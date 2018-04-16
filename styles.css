@@ -445,16 +445,18 @@ a:active {
 
 /*Responsive*/
 
- @media screen and (min-width:27in) {
+ @media screen and (min-width:2000px) {
   .media-holder {
-      width:90%;
-      top:0;
-      padding:3%;
-      padding-left:0;
+      width:80%;
+      top:-5%;
+      margin-left:-10%;
     }
   .media-holder iframe {
       transform: scale(1.8);
       transform-origin: 0 0;
+  }
+  .about {
+    margin-left:70%;
   }
   }
 
