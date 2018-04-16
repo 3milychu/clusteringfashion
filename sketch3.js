@@ -2,9 +2,9 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 1200,
-    h = 1300,
-    maxNodeSize = 2,
+var w = 2000,
+    h = 2500,
+    maxNodeSize = 1,
     x_browser = 20,
     y_browser = 25,
     root;
@@ -93,10 +93,10 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-10)
-    .linkDistance(2)
+    .charge(-70)
+    .linkDistance(10)
     .friction(0.5)
-    .linkStrength(function(l, i) {return 1; })
+    .linkStrength(function(l, i) {return 2; })
     .size([w, h])
     .on("tick", tick)
         .start();
