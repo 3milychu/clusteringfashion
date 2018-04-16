@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 700,
-    h = 600,
+var w = 800,
+    h = 1000,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
@@ -29,7 +29,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
+            return d.Title != "Title" });
 
   // create children hierarchy json
 
@@ -95,9 +95,9 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-500)
-    .linkDistance(0.005)
-    .friction(0.3)
+    .charge(-100)
+    .linkDistance(1)
+    .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
@@ -131,17 +131,17 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 30 || 2.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 50 || 1.5; })
       .style("fill", "#eee");
  
    
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return d.path;})
-        .attr("x", function(d) { return -10;})
-        .attr("y", function(d) { return -10;})
-        .attr("height", 25)
-        .attr("width", 25);
+        .attr("x", function(d) { return -5;})
+        .attr("y", function(d) { return -5;})
+        .attr("height", 15)
+        .attr("width", 15);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
@@ -157,19 +157,19 @@ function update() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -20;})
-              .attr("y", function(d) { return -20;})
-              .attr("height", 50)
-              .attr("width", 50);
+              .attr("x", function(d) { return -10;})
+              .attr("y", function(d) { return -10;})
+              .attr("height", 25)
+              .attr("width", 25);
           })
           // set back
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -12;})
-              .attr("y", function(d) { return -15;})
-              .attr("height", 25)
-              .attr("width", 25);
+              .attr("x", function(d) { return -5;})
+              .attr("y", function(d) { return -5;})
+              .attr("height", 15)
+              .attr("width", 15);
           });
 
   // Append hero name on roll over next to the node as well
@@ -216,8 +216,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 3), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 3), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/5|| 0.5), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/5 || 0.5), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  

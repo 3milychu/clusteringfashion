@@ -51,6 +51,30 @@
     document.getElementById("popout4").style.display = "none";
   }
 
+  function showPopout5 () {
+    document.getElementById("popout5").style.display = "inline";
+  }
+
+  function closePopout5 () {
+    document.getElementById("popout5").style.display = "none";
+  }
+
+  function showPopout6 () {
+    document.getElementById("popout6").style.display = "inline";
+  }
+
+  function closePopout6 () {
+    document.getElementById("popout6").style.display = "none";
+  }
+
+  function showPopout7 () {
+    document.getElementById("popout7").style.display = "inline";
+  }
+
+  function closePopout7 () {
+    document.getElementById("popout7").style.display = "none";
+  }
+
   window.onload = scrollDiv;
 
   function scrollDiv(){
@@ -159,12 +183,74 @@
       </div>
 
     </div>
-        
+
+    <div class="media-holder">
+        <iframe id="century" width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
+
+       <div class="about" onclick="showPopout5();">
+        ?
+      </div>
+
+      <div class="popout" id="popout5">
+        <h1>16th - 17th Century</h1>
+        <close onclick="closePopout5();">x</close>
+        <p><em>16th - 17th</em> items see better clustering than 16th century items.
+
+        The clusters shown here have been <em>filtered by items between 1600 and 1700</em>, which means that the clusters displayed have been reduced to just clusters that contain items between 1600-1700, showing only items from the 16th century or older in each cluster.
+
+        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="media-holder">
+        <iframe id="century_18" width="315" height="560" src="18thcentury.html" scrolling="no" frameBorder="0"></iframe>
+
+       <div class="about" onclick="showPopout6();">
+        ?
+      </div>
+
+      <div class="popout" id="popout6">
+        <h1>17th - 18th Century</h1>
+        <close onclick="closePopout6();">x</close>
+        <p><em>17th - 18th century</em> items see better clustering than 16th century items.
+
+        The clusters shown here have been <em>filtered by items between 1700 and 1800</em>, which means that the clusters displayed have been reduced to just clusters that contain items between 1700-1800, showing only these items in each cluster.
+
+        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
+        </p>
+      </div>
+
+    </div>
+
+     <div class="media-holder">
+        <iframe id="century_19" width="315" height="560" src="19thcentury.html" scrolling="no" frameBorder="0"></iframe>
+
+       <div class="about" onclick="showPopout7();">
+        ?
+      </div>
+
+      <div class="popout" id="popout7">
+        <h1>18th - 19th Century</h1>
+        <close onclick="closePopout7();">x</close>
+        <p><em>18th - 19th century</em> items see better clustering than 19th century items.
+
+        The clusters shown here have been <em>filtered by items between 1800 and 1900</em>, which means that the clusters displayed have been reduced to just clusters that contain items between 1800-1900, showing only these items in each cluster.
+
+        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
+        </p>
+      </div>
+
+    </div>
+       
+ <!-- End scroll post -->
   </div>
 
 </div>
 
 <div class="clear"></div>
+
 <!-- Text -->
 
 <div class="content">

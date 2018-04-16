@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 800,
-    h = 1200,
+var w = 1000,
+    h = 1000,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
@@ -15,10 +15,9 @@ var force = d3.layout.force();
 vis = d3.select("#vis")
   .append("svg")
   .attr("width", w)
-  .attr("height", h)
-  // .style('filter', 'url(#grayscale)');
+  .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_19.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_18.json", function(json) {
 
   var format = d3.format("");
 
@@ -29,7 +28,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != "Title" });
+            return d.Title != "Title"});
 
   // create children hierarchy json
 
@@ -59,7 +58,7 @@ json.forEach(function(d){
         depthCursor = depthCursor[index].children;
         // This is a leaf, so add the last element to the specified branch
         if ( depth === levels.length - 1 ) depthCursor.push({ Title : d.Title, link : d.link, path : d.path, 
-          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, src : d.src , 
+          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, src : d.src,
           labels: d.labels});
     });
 });
@@ -95,7 +94,7 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-100)
+    .charge(-35)
     .linkDistance(1)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
@@ -131,7 +130,7 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 50 || 1.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 60 || 1.5; })
       .style("fill", "#eee");
  
    
@@ -140,14 +139,14 @@ function update() {
         .attr("xlink:href",  function(d) { return d.path;})
         .attr("x", function(d) { return -5;})
         .attr("y", function(d) { return -5;})
-        .attr("height", 15)
-        .attr("width", 15);
+        .attr("height", 10)
+        .attr("width", 10);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
           // Append hero text
           .on( 'click', function (d) {
-              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+              d3.select("h1").html(d.Title + " from cluster " + d.labels);  
               d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
               d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
               d3.select("#featured").html("<img src='" + d.src + "'>"); 
@@ -159,8 +158,8 @@ function update() {
               .transition()
               .attr("x", function(d) { return -10;})
               .attr("y", function(d) { return -10;})
-              .attr("height", 25)
-              .attr("width", 25);
+              .attr("height", 20)
+              .attr("width", 20);
           })
           // set back
           .on( 'mouseleave', function() {
@@ -168,8 +167,8 @@ function update() {
               .transition()
               .attr("x", function(d) { return -5;})
               .attr("y", function(d) { return -5;})
-              .attr("height", 15)
-              .attr("width", 15);
+              .attr("height", 10)
+              .attr("width", 10);
           });
 
   // Append hero name on roll over next to the node as well
@@ -188,7 +187,8 @@ function update() {
  
  
   // Re-select for update.
-  path = vis.selectAll("path.link");
+  path = vis.selectAll("path.link")
+    .style("stroke-width","0.3px");
   node = vis.selectAll("g.node");
  
 function tick() {
@@ -216,8 +216,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/5|| 0.5), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/5 || 0.5), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  
