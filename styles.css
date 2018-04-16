@@ -18,6 +18,24 @@ button:hover {
   background-color:#AB9A84;
 }
 
+#zoom-in{
+  position:absolute;
+  right:0;
+  margin-right:23%;
+  margin-top:3%;
+  display:block;
+  padding:1%;
+}
+#zoom-out{
+  position:absolute;
+  right:0;
+  margin-right:23%;
+  margin-top:8%;
+  display:block;
+  padding:1%;
+}
+
+
 .popout {
   position:absolute;
   display:none;
@@ -243,7 +261,7 @@ p {
 
 .map-img {
   width:80%;
-  height:40vh;
+  height:45vh;
   overflow: auto;
   background-color:white;
 }
@@ -454,6 +472,26 @@ a:active {
     width: 100%;
     height: 100%;
     }
-
+  .map-img{
+      width:100%;
+  }
+  #zoom-in{
+    position:absolute;
+    right:0;
+    margin-right:5%;
+    margin-top:2%;
+    display:block;
+    padding:1%;
+    font-size:2em;
+  }
+  #zoom-out{
+    position:absolute;
+    right:0;
+    margin-right:5%;
+    margin-top:9.5%;
+    display:block;
+    padding:1%;
+    font-size:2em;
+  }
  }
 

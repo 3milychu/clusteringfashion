@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="sketch6.js"></script>
 
 <!-- Scripts -->
 <script>
@@ -57,7 +56,7 @@
   function scrollDiv(){
     var elmnt = document.getElementById("map-img-parent");
     elmnt.scrollLeft = 2600;
-    elmnt.scrollTop = 1900;
+    elmnt.scrollTop = 1800;
   }
 
 </script>
@@ -222,7 +221,13 @@
 
       <div class="map-img" id="map-img-parent">
         <div id="map-img">
+          <div class="controls">
+              <button id="zoom-in">+</button>
+              <button id="zoom-out">-</button>
+          </div>
+
           <img id="my_map" src="assets/all.png">
+
         </div>
       </div>
      </div>
