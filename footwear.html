@@ -24,13 +24,25 @@
 <body>
 
     <header style="margin-left:5%;">
-      <h4 title="Filter applied to data" style="font-size:1em;line-height:0.5em;cursor:pointer">Footwear</h4>
-      <label title="Actual item image" style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert1();">Color</label>
+      <h4 style="font-size:1em;line-height:0.5em;cursor:pointer">Footwear
+        <info style="font-size:1em;vertical-align:top;" title="Dataset filtered by items classified as footwear">&#8505;</info></h4>
+
+      <label style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert1();">Color</label>
+      <info style="font-size:1em;vertical-align:middle;" title="Actual images in the original dataset">&#8505;</info>
+
        <label style="font-size:0.5em;line-height:0.5em;display:inline;">|</label>
-      <label  title="What the machine saw" style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert2();">Grayscale</label><br>
+
+      <label style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert2();">Grayscale</label>
+      <info style="font-size:1em;vertical-align:middle;" title="Essentially what the machine saw (B&W outlines of each object)">&#8505;</info>
+
+      <br>
+
       <h1 style="font-size:0.8em;line-height:0.8em;"></h1>
+
       <h2 style="font-size:0.5em">Click an item to explore</h2>
+
       <h3 style="font-size:0.5em"></h3>
+
       <div id="featured"></div>
     </header>
     <!-- container for force layout visualisation  -->
