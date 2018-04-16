@@ -5,6 +5,14 @@
   padding:2%;
 }
 
+info {
+  color:#EE3124;
+}
+
+info:hover {
+  color:grey;
+}
+
 #featured img{
   width:50px;
   max-height:100px;
