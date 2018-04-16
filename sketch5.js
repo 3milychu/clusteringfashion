@@ -188,7 +188,7 @@ function update() {
  
   // Re-select for update.
   path = vis.selectAll("path.link")
-    .style("stroke-width","0.3px");
+    .style("stroke-width","1px");
   node = vis.selectAll("g.node");
  
 function tick() {
