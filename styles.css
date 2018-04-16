@@ -445,6 +445,13 @@ a:active {
 
 /*Mobile*/
 
+ @media screen and (min-width:5000px) {
+  .media-holder {
+      width:90%;
+    }
+
+  }
+
  @media screen and (max-width:1100px) {
   .scroll-post {
       height:50%;
