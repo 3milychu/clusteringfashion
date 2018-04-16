@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 800,
-    h = 1000,
+var w = 700,
+    h = 600,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
@@ -18,7 +18,7 @@ vis = d3.select("#vis")
   .attr("height", h)
   // .style('filter', 'url(#grayscale)');
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/wrist.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json", function(json) {
 
   var format = d3.format("");
 
@@ -29,7 +29,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != "Title"});
+            return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
 
   // create children hierarchy json
 
@@ -95,9 +95,9 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-400)
-    .linkDistance(50)
-    .friction(0.5)
+    .charge(-500)
+    .linkDistance(0.005)
+    .friction(0.3)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
     .on("tick", tick)
@@ -216,8 +216,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 3), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 3), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  

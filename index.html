@@ -18,6 +18,39 @@
     var iframe = $("#all-iframe");
     iframe.attr("src", iframe.data("src")); 
 });
+
+  function showPopout1 () {
+    document.getElementById("popout1").style.display = "inline";
+  }
+
+  function closePopout1 () {
+    document.getElementById("popout1").style.display = "none";
+  }
+
+  function showPopout2 () {
+    document.getElementById("popout2").style.display = "inline";
+  }
+
+  function closePopout2 () {
+    document.getElementById("popout2").style.display = "none";
+  }
+
+   function showPopout3 () {
+    document.getElementById("popout3").style.display = "inline";
+  }
+
+  function closePopout3 () {
+    document.getElementById("popout3").style.display = "none";
+  }
+
+  function showPopout4 () {
+    document.getElementById("popout4").style.display = "inline";
+  }
+
+  function closePopout4 () {
+    document.getElementById("popout4").style.display = "none";
+  }
+
 </script>
 
 </head>
@@ -35,16 +68,87 @@
   
   <div class="scroll-post">
 
-    <div class="media-holder" id="section1">
-        <iframe id="bonnets" width="315" height="560" src="wrist.html" scrolling="no" frameBorder="0"></iframe>
+     <div class="media-holder">
+        <iframe id="model" width="315" height="560" src="modelclusters.html" scrolling="no" frameBorder="0"></iframe>
+
+        <div class="about" onclick="showPopout1();">
+          ?
+        </div>
+
+        <div class="popout" id="popout1">
+          <h1>Model Clusters</h1>
+          <close onclick="closePopout1();">x</close>
+          <p><em>Model clusters</em> are composed of objects that were grouped particularly well when training a machine to look at only form-focused, colorblinded versions of the image dataset. See <a href="modelbuild.html" target="_blank">Model Build</a> for specifics on the machine learning task. The machine was given colorblinded, form-focused versions of the images (refer to Figure 1). 
+
+          <mark>The goal is to uncover what patterns in form could be found, and to identify cases where using machine learning to disentangle form was effective and ineffective.</mark>
+          <img id="transform" src="assets/transform.png">
+          </p>
+        </div>
+
     </div>
 
-    <div class="media-holder" id="section3">
+    <div class="media-holder">
+        <iframe id="wrist" width="315" height="560" src="symmetry.html" scrolling="no" frameBorder="0"></iframe>
+
+        <div class="about" onclick="showPopout2();">
+          ?
+        </div>
+
+        <div class="popout" id="popout2">
+          <h1>Symmetrical Items</h1>
+          <close onclick="closePopout2();">x</close>
+          <p><em>Symmetrical items</em> are clustered particularly well when focusing on form.
+
+            The two clusters you see here are Clusters #46 and #29 in their entirety.
+
+          <mark>This is indicative of one primary hypothesis, that form is particularly effective at grouping items that are produced after mechanical production, when patterns have been standardized.</mark>
+          </p>
+        </div>
+
+    </div>
+
+    <div class="media-holder">
         <iframe id="footwear" width="315" height="560" src="footwear.html" scrolling="no" frameBorder="0"></iframe>
+
+        <div class="about" onclick="showPopout3();">
+          ?
+        </div>
+
+        <div class="popout" id="popout3">
+          <h1>Footwear</h1>
+          <close onclick="closePopout3();">x</close>
+          <p><em>Footwear</em> is clustered beautifully and reveal the range of colors across types of form when focusing on form.
+
+          The clusters shown here have been <em>filtered by footwear</em>, which means that the clusters displayed have been reduced to just clusters that contain footwear, showing only footwear items from each cluster.
+
+          This shows that clustering items through machine learning can be beneficial when it is desirable to reveal the range of color across a collection that is similar in other ways.
+
+          <mark>This is another indication that form is particularly effective at grouping items that are produced after mechanical production.</mark>
+          </p>
+        </div>
+
     </div>
 
-    <div class="media-holder" id="section2">
+    <div class="media-holder">
         <iframe id="century" width="315" height="560" src="16thcentury.html" scrolling="no" frameBorder="0"></iframe>
+
+       <div class="about" onclick="showPopout4();">
+        ?
+      </div>
+
+      <div class="popout" id="popout4">
+        <h1><= 16th Century</h1>
+        <close onclick="closePopout4();">x</close>
+        <p><em><=16th Century</em> items do not seem to cluster very well when focusing on form.
+
+        The clusters shown here have been <em>filtered by items from the 16th century or older</em>, which means that the clusters displayed have been reduced to just clusters that contain items from the 16th century or older, showing only items from the 16th century or older in each cluster.
+
+        This limitation may be due to the relatively smaller number of items in the collection from the 16th century or older.
+
+        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
+        </p>
+      </div>
+
     </div>
         
   </div>
@@ -65,7 +169,7 @@
     </div>
 
     <div class="side-column" style="float:left;"">
-      <h5><mark>A Colorblind Approach to Fashion Object Recognition</mark></h5>
+      <h5><mark>Disentangling Form: Colorblinding Machines to Draw Geometric Patterns in What We Wear</mark></h5>
         <p>What if we couldn't see color? How would we, for example, classify fashion objects solely on the basis of their spatial composition?
         <br><br>
         <em>Machine Learning Classification</em><br><br>
