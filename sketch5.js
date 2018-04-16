@@ -3,7 +3,7 @@ var tcBlack = "#130C0E";
 
 // rest of vars
 var w = 800,
-    h = 1000,
+    h = 700,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/footwear.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json", function(json) {
 
   var format = d3.format("");
 
@@ -28,7 +28,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.bodyclass1 === "feet" & d.Title != "Title"});
+            return d.Title != "Title"});
 
   // create children hierarchy json
 
@@ -93,9 +93,9 @@ function update() {
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
-        .gravity(0.05)
+        .gravity(0.1)
     .charge(-50)
-    .linkDistance(20)
+    .linkDistance(0.05)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
