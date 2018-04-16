@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="sketch6.js"></script>
 
 <!-- Scripts -->
 <script>
@@ -49,6 +50,14 @@
 
   function closePopout4 () {
     document.getElementById("popout4").style.display = "none";
+  }
+
+  window.onload = scrollDiv;
+
+  function scrollDiv(){
+    var elmnt = document.getElementById("map-img-parent");
+    elmnt.scrollLeft = 2600;
+    elmnt.scrollTop = 1900;
   }
 
 </script>
@@ -194,15 +203,45 @@
     <a href="all.html" target="_blank"><div class="launch">Launch the Complete Map</div></a>
     <p><em>Due to image loading limitations in Chrome and Mozilla, the interactive must be opened in Safari.</em></p>
 
-    <div class="typewriter">
-        <h1 id="subtitle1">model: k-means</h1>
-        <h1 id="subtitle2">items: 7.4k</h1>
-        <h1 id="subtitle3">clusters: 56</h1>
+      <div class="typewriter">
+          <h1 id="subtitle1">model: k-means</h1>
+          <h1 id="subtitle2">items: 7.4k</h1>
+          <h1 id="subtitle3">clusters: 56</h1>
+      </div>
     </div>
+
+    <img id="all" src="assets/all.png">
   </div>
 
-  <img id="all" src="assets/all.png">
-<!-- <iframe id="all-iframe" width="315" height="560" scrolling="no" data-src="all.html" src="assets/all.png"></iframe> -->
+<div class="content">
+  <div class="section">
+
+    <div class="media-column">
+   
+      <button onclick="scrollDiv();">Reset Map</button>
+
+      <div class="map-img" id="map-img-parent">
+        <div id="map-img">
+          <img id="my_map" src="assets/all.png">
+        </div>
+      </div>
+     </div>
+
+     <div class="side-column" style="float:left;"">
+      <h5><mark>Understanding the Clusters: An Annotated View</mark></h5>
+        <p>The clusters formed by focusing on colorblinded form are effective in cases and not so effective in others. 
+        <br><br>
+        In the annotated version, clusters are circled and labeled by 1) Cluster ID, 2) observed cluster characteristics and 3) details regarding the composition of clusters i.e. average year, breakdown of items by body part.
+        <br><br>
+        <em>Explore The Annotated Map</em><br><br>
+        Scroll left/right and up/down to explore the annotated version of the complete cluster map.
+        <br><br>
+        <em>Interactive Cluster Map</em><br><br>
+        For the interactive version, visit the <a href="index.html#map">live map</a>
+      </p>
+    </div>
+
+  </div>
 </div>
 
 </body>
