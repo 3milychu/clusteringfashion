@@ -212,7 +212,7 @@ p {
   overflow-x: scroll;
   overflow-y:hidden;
   -webkit-overflow-scrolling: touch;
-  height:100vh;
+  height:90vh;
 }
 
 .videoWrapper {
@@ -443,12 +443,20 @@ a:active {
   100% { width: 45% }
 }
 
-/*Mobile*/
+/*Responsive*/
 
  @media screen and (min-width:5000px) {
   .media-holder {
       width:90%;
+      top:0;
+      padding:3%;
+      padding-left:0;
     }
+
+  .media-holder iframe {
+      transform: scale(1.8);
+      transform-origin: 0 0;
+  }
 
   }
 
