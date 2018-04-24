@@ -5,8 +5,13 @@
     <title>Disentangling Form: Using machines to draw geometric patterns in what we wear</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="libraries/p5.js"></script>
+    <script type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script type="text/javascript" src="sketch9.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
 
 <!-- Scripts -->
 <script>
@@ -75,6 +80,40 @@
     document.getElementById("popout7").style.display = "none";
   }
 
+  function scroll1() {
+      $(function() {
+        $('#next1').bind('click',function(event){
+            $('#scroll-post-1').clearQueue().stop().animate({
+                scrollLeft: $('#CR').offset().left
+            }, 500);
+            event.preventDefault();
+        });
+        });
+  };
+
+    function scroll2() {
+      $(function() {
+        $('#next2').bind('click',function(event){
+            $('#scroll-post-1').clearQueue().stop().animate({
+                scrollLeft: $('#UC').offset().left
+            }, 500);
+            event.preventDefault();
+        });
+        });
+      // $('#scroll-post-1').scrollTo('#UC')
+  };
+
+      function scroll3() {
+      $(function() {
+        $('#next3').bind('click',function(event){
+            $('#scroll-post-1').clearQueue().stop().animate({
+                scrollLeft: $('#XT').offset().left
+            }, 500);
+            event.preventDefault();
+        });
+        });
+  };
+
   window.onload = scrollDiv;
 
   function scrollDiv(){
@@ -91,158 +130,276 @@
 <!-- Header -->
 
     <div class="title">
-     <h4 style="display:inline;margin-left:5%;">Disentangling Form: Using machines to draw geometric patterns in what we wear</h4>
-     <p style="display:inline;font-size:0.5em;">A data visualization by <a href="https://3milychu.github.io" target="_blank">Emily Chu</a></p>
+      <div class="header">
+         <p>A data visualization by <a href="https://3milychu.github.io" target="_blank">Emily Chu</a></p>
+         <h1 style="font-family:Didot, serif;">Image, Form, Clusters: The Emergence of our Style</h1>
+<!--          <mark><h4 style="display:inline;">Fashion + Data </h4></mark> -->
+        <p >
+        <br>
+        This is a project that seeks to understand the forms that we've designed to mold and accentuate the human body. Machine learning was used to extract form from images at the MET's Costume Institute. Items were then clustered with kmeans, a statistical model that can be used to train machines to predict the items that are most similar from the information given.</p>
+     </div>
+
+     <a href="#tutorial"><button>Start</button></a>
     </div>
+
+
+<!-- Cluster Tutorial -->
+<div>
+    <div id="tutorial">
+      <h1 style="font-family:Didot, serif;">Creating clusters</h1>
+      <button id="resetTutorial" onclick="reset();">Where We Start</button>
+      <button id="playTutorial" onclick="play();">What We Want</button>
+      <a href="#model-section"><button style="text-align:center;">Featured Findings</button></a>
+    </div>
+
+    <div class="clusters" id="clusters">
+    </div>
+
+    <div class="section" id="cluster-desc">
+      <p>"Clustering refers to the process of grouping samples so that the samples are similar within each group. The groups are
+        called clusters. Clustering is a data mining technique used in statistical data analysis, data mining, pattern recognition,
+        image analysis etc." <a href="https://pdfs.semanticscholar.org/3cfa/2b59c3221bc3fe1ec85a311e679ff0c3ec7c.pdf">(IJIT, 2012)</a>
+      </p>
+    </div>
+
+</div>
+<div id="anchor1">
+</div>
+
+<!-- Model Clusters -->
+<div class="content" id="model-section">
+  <div class="fashion">
+    <h1>Model Clusters</h1>
+    <p>Examining <em>Model clusters</em>, or groups of items that were identified as particularly visually similar in form by the subjective criteria used, highlights useful information we can expect from this approach.</p>
+     <a href="#DB"><button style="text-align:center;">See the model clusters</button></a>
+  </div>
+
+</div>
+ <div class="clear" style="margin:10%;">
+</div>
+
 <!-- Begin Visualizations -->
 
 <div class="section">
   
-  <div class="scroll-post">
+  <div class="scroll-post" id="scroll-post-1">
 
-     <div class="media-holder">
-        <iframe id="model" width="315" height="560" src="modelclusters.html" scrolling="no" frameBorder="0">
-       </iframe>
-
+    <div class="media-holder">
+        <iframe id="DB" width="315" height="560" src="dancingbell.html" scrolling="no" frameBorder="0"></iframe>
         <div class="about" onclick="showPopout1();">
           ?
         </div>
-
         <div class="popout" id="popout1">
-          <h1>Model Clusters</h1>
           <close onclick="closePopout1();">x</close>
-          <p><em>Model clusters</em> are composed of objects that were grouped particularly well when training a machine to look at only form-focused, colorblinded versions of the image dataset. See <a href="modelbuild.html" target="_blank">Model Build</a> for specifics on the machine learning task. The machine was given colorblinded, form-focused versions of the images (refer to Figure 1). 
+          <div class="popout-heading">
+            <mark>Cluster #46</mark>
+            <h1 style="font-family:Didot,serif;">The Dancing Bell</h1>
+          </div>
+          <img class="primitive" src="assets/primitive1.png">
+          <p>
+          <em>The Dancing Bell Shape</em> is a form that clusters particularly well. 
 
-          <mark>The goal is to uncover what patterns in form could be found, and to identify cases where using machine learning to disentangle form was effective and ineffective.</mark>
-          <img id="transform" src="assets/transform.png">
+          We find mostly <mark>19th century dresses, petticoats and skirts</mark>in this cluster. 
+
+          However, a <a href="http://www.metmuseum.org/art/collection/search/116866">1500 German purse</a> was also classified as similar in form.
           </p>
         </div>
-
+        <button class="next" id="next1" onclick="scroll1();">Next: The Classic Rectangle</button>
     </div>
 
-    <div class="media-holder">
-        <iframe id="wrist" width="315" height="560" src="symmetry.html" scrolling="no" frameBorder="0"></iframe>
-
+     <div class="media-holder" style="margin-left:5%;">
+        <iframe id="CR" width="315" height="560" src="rectangle.html" scrolling="no" frameBorder="0"></iframe>
         <div class="about" onclick="showPopout2();">
           ?
         </div>
-
         <div class="popout" id="popout2">
-          <h1>Symmetrical Items</h1>
           <close onclick="closePopout2();">x</close>
-          <p><em>Symmetrical items</em> are clustered particularly well when focusing on form.
+          <div class="popout-heading">
+            <mark>Cluster #17</mark>
+            <h1 style="font-family:Didot,serif;">The Classic Rectangle</h1>
+          </div>
+          <img class="primitive" src="assets/primitive2.png">
+          <p>
+          <em>The Classic Rectangle</em> is a classic form that expectedly clusters particularly well. 
 
-            The two clusters you see here are Clusters #46 and #29 in their entirety.
-
-          <mark>This is indicative of one primary hypothesis, that form is particularly effective at grouping items that are produced after mechanical production, when patterns have been standardized.</mark>
+          We find mostly <mark>19th century handkerchiefs, scarfs, fichus, headcloths, purses/bags and cases</mark>in this cluster. 
           </p>
         </div>
-
+        <button class="next" id="next2" onclick="scroll2();">Next: The U-Collar</button>
     </div>
 
-    <div class="media-holder">
-        <iframe id="footwear" width="315" height="560" src="footwear.html" scrolling="no" frameBorder="0"></iframe>
-
+    <div class="media-holder" id="UC">
+        <iframe width="315" height="560" src="ucollar.html" scrolling="no" frameBorder="0"></iframe>
         <div class="about" onclick="showPopout3();">
           ?
         </div>
-
         <div class="popout" id="popout3">
-          <h1>Footwear</h1>
           <close onclick="closePopout3();">x</close>
-          <p><em>Footwear</em> is clustered beautifully and reveal the range of colors across types of form when focusing on form.
+          <div class="popout-heading">
+            <mark>Cluster #4</mark>
+            <h1 style="font-family:Didot,serif;">The U-Collar</h1>
+          </div>
+          <img class="primitive" src="assets/primitive3.png">
+          <p>
+          <em>The U-Collar</em> was an a form that performed particularly well, perhaps because of its distinct shape.
 
-          The clusters shown here have been <em>filtered by footwear</em>, which means that the clusters displayed have been reduced to just clusters that contain footwear, showing only footwear items from each cluster.
+          U-Collars span varying thicknesses and edge treatment, imitating shapes spanning <a href="http://www.metmuseum.org/art/collection/search/110189">sunrays</a>, <a href="http://www.metmuseum.org/art/collection/search/110209">waveforms</a>  and <a href="http://www.metmuseum.org/art/collection/search/118989">butterflys</a>.
 
-          This shows that clustering items through machine learning can be beneficial when it is desirable to reveal the range of color across a collection that is similar in other ways.
-
-          <mark>This is another indication that form is particularly effective at grouping items that are produced after mechanical production.</mark>
+          We find mostly <mark>18th-19th century collars, neckpieces and fichus</mark>in this cluster. 
           </p>
         </div>
 
+        <button class="next" id="next3" onclick="scroll3();">Next: The X-Torso</button>
     </div>
 
     <div class="media-holder">
-        <iframe id="century" width="315" height="560" src="16thcentury.html" scrolling="no" frameBorder="0"></iframe>
+        <iframe id="XT" width="315" height="560" src="xtorso.html" scrolling="no" frameBorder="0"></iframe>
+        <div class="about" onclick="showPopout4();">
+          ?
+        </div>
+        <div class="popout" id="popout4">
+          <close onclick="closePopout4();">x</close>
+          <div class="popout-heading">
+            <mark>Cluster #43</mark>
+            <h1 style="font-family:Didot,serif;">The X-Torso</h1>
+          </div>
+          <img class="primitive" src="assets/primitive4.png">
+          <p>
+          <em>The X-Torso</em> was an a form that performed particularly well, also perhaps because of its distinct shape.
 
-       <div class="about" onclick="showPopout4();">
-        ?
-      </div>
+          X-Torsos span varying thicknesses and edge treatment, imitating shapes spanning <a href="http://www.metmuseum.org/art/collection/search/110189">sunrays</a>, <a href="http://www.metmuseum.org/art/collection/search/110209">waveforms</a>  and <a href="http://www.metmuseum.org/art/collection/search/118989">butterflys</a>.
 
-      <div class="popout" id="popout4">
-        <h1><= 16th Century</h1>
-        <close onclick="closePopout4();">x</close>
-        <p><em><=16th Century</em> items do not seem to cluster very well when focusing on form.
-
-        The clusters shown here have been <em>filtered by items from the 16th century or older</em>, which means that the clusters displayed have been reduced to just clusters that contain items from the 16th century or older, showing only items from the 16th century or older in each cluster.
-
-        This limitation may be due to the relatively smaller number of items in the collection from the 16th century or older.
-
-        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
-        </p>
-      </div>
-
+          We find mostly <mark>18th-19th century collars, neckpieces and fichus</mark>in this cluster. 
+          </p>
+        </div>
+        <a href="#century-section"><button class="next" id="next4">Next: Evolution Across Centuries</button></a>
     </div>
 
-<!--     <div class="media-holder">
-        <iframe id="century_17" width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
+</div>
+ <div class="clear" style="margin:10%;">
+</div>
+
+  <!-- Model Clusters -->
+<div class="content" id="century-section">
+  <div class="fashion">
+    <h1>Evolution Across Centuries</h1>
+    <p>Examining <em>clustering across centuries</em> can help us see the evolution of "clusterable" items. This is indicative of a hypothesis reached during the course of this project, which is that standardized patterns, or patterns proliferated through
+    means such as the rise of mechanical reproduction, are most discernible when clustering images of costumes by form.</p>
+     <a href="#century-clusters"><button style="text-align:center;">See the clusters by century</button></a>
+  </div>
+
+</div>
+ <div class="clear" style="margin:10%;">
+</div>
+
+<!-- Highlights by century-->
+<div class="scroll-post" id="century-clusters">
+
+      <div class="media-holder">
+        <iframe id="century" width="315" height="560" src="16thcentury.html" scrolling="no" frameBorder="0"></iframe>
 
        <div class="about" onclick="showPopout5();">
         ?
       </div>
 
       <div class="popout" id="popout5">
-        <h1>16th - 17th Century</h1>
         <close onclick="closePopout5();">x</close>
-        <p><em>16th - 17th</em> items see better clustering than 16th century items.
 
-        The clusters shown here have been <em>filtered by items between 1600 and 1700</em>, which means that the clusters displayed have been reduced to just clusters that contain items between 1600-1700, showing only items from the 16th century or older in each cluster.
+        <div class="popout-heading">
+          <mark>All Clusters, filtered by <= 16th century</mark>
+          <h1 style="font-family:Didot,serif;"><= 1600</h1>
+        </div>
+
+        <p><em>Items from the 16th century or order</em> do not seem to cluster very well when focusing on form.
+
+        This limitation may be due to the relatively smaller number of items in the collection from the 16th century or older.
 
         <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
         </p>
       </div>
-
+      <button class="next" id="next5" onclick="scroll5();">Next: 17th Century</button>
     </div>
 
     <div class="media-holder">
-        <iframe id="century_18" width="315" height="560" src="18thcentury.html" scrolling="no" frameBorder="0"></iframe>
+        <iframe id="century" width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
 
        <div class="about" onclick="showPopout6();">
         ?
       </div>
 
       <div class="popout" id="popout6">
-        <h1>17th - 18th Century</h1>
         <close onclick="closePopout6();">x</close>
-        <p><em>17th - 18th century</em> items see better clustering than 16th century items.
 
-        The clusters shown here have been <em>filtered by items between 1700 and 1800</em>, which means that the clusters displayed have been reduced to just clusters that contain items between 1700-1800, showing only these items in each cluster.
+        <div class="popout-heading">
+          <mark>All Clusters, filtered by 17th century</mark>
+          <h1 style="font-family:Didot,serif;">1600s</h1>
+        </div>
 
-        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
+        <p><em>Items from the 17th century</em> show an emergence of distinct clusters in form in comparison to the 16th century.
+
+        Compared to the 16th century: 1) we have more objects to learn from and 2) we see the emergence of forms that will come to represent strong forms costumes.
+
+        In this century, clothing was still largely made by <a href="https://en.wikipedia.org/wiki/Textile_manufacture_during_the_Industrial_Revolution"><individual workers and artisans./a>
+
+        For example, you see the <a href="#UC">U-Shaped Collar</a> making its appearance, a shape that we covered earlier as a model cluster.
+
+        <mark>However, it is evident that the clarity of strong standardized forms do not appear yet in this century</mark>
         </p>
       </div>
-
+      <button class="next" id="next4" onclick="scroll4();">Next: 17th Century</button>
     </div>
 
-     <div class="media-holder">
-        <iframe id="century_19" width="315" height="560" src="19thcentury.html" scrolling="no" frameBorder="0"></iframe>
+    <div class="media-holder">
+        <iframe id="century" width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
 
        <div class="about" onclick="showPopout7();">
         ?
       </div>
 
       <div class="popout" id="popout7">
-        <h1>18th - 19th Century</h1>
         <close onclick="closePopout7();">x</close>
-        <p><em>18th - 19th century</em> items see better clustering than 19th century items.
 
-        The clusters shown here have been <em>filtered by items between 1800 and 1900</em>, which means that the clusters displayed have been reduced to just clusters that contain items between 1800-1900, showing only these items in each cluster.
+        <div class="popout-heading">
+          <mark>All Clusters, filtered by 18th century</mark>
+          <h1 style="font-family:Didot,serif;">1700s</h1>
+        </div>
+
+        <p><em>Items from the 18th century</em> are growing increasingly easy to cluster by form.
+
+        This makes sense when we consider advancements in textile manufacturing in this century, including <a href="https://en.wikipedia.org/wiki/Flying_shuttle">John Kay's Flying Shuttle (1733)</a> and <a href="https://en.wikipedia.org/wiki/Spinning_mule">Samuel Crompton's Spinning Mule (1769)</a>.
+
+        <mark>This supports the hypothesis that clustering by form pulls out the most standardized shapes - most likely created after the Industrial Revolution  - as a result of mechanical reproduction.</mark>
+        </p>
+      </div>
+      <button class="next" id="next6" onclick="scroll6();">Next: 20th Century</button>
+    </div>
+
+    <div class="media-holder">
+        <iframe id="century" width="315" height="560" src="19thcentury.html" scrolling="no" frameBorder="0"></iframe>
+
+       <div class="about" onclick="showPopout8();">
+        ?
+      </div>
+
+      <div class="popout" id="popout8">
+        <close onclick="closePopout8();">x</close>
+
+        <div class="popout-heading">
+          <mark>All Clusters, filtered by 20th century</mark>
+          <h1 style="font-family:Didot,serif;">1900s</h1>
+        </div>
+
+        <p><em>Items from the 20th century</em> do not seem to cluster very well when focusing on form.
+
+        This limitation may be due to the relatively smaller number of items in the collection from the 19th century.
 
         <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
         </p>
       </div>
+      <a href="#map"><button class="next" id="next4">Next: The Complete Cluster Map</button></a>
+    </div>
 
-    </div> -->
+</div>
        
  <!-- End scroll post -->
   </div>
@@ -251,39 +408,8 @@
 
 <div class="clear"></div>
 
-<!-- Text -->
-
-<div class="content">
-
-  <div class="section">
-
-        <div class="media-column">
-          <div class="videoWrapper">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/gALoeClOfqk?vq=hd1080&amp;rel=0&amp;showinfo=0&amp;autoplay=1&amp;mute=1" frameborder="0" encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-
-    <div class="side-column" style="float:left;"">
-      <h5><mark>Disentangling Form: Colorblinding Machines to Draw Geometric Patterns in What We Wear</mark></h5>
-        <p>What if we couldn't see color? How would we, for example, classify fashion objects solely on the basis of their spatial composition?
-        <br><br>
-        <em>Machine Learning Classification</em><br><br>
-        This project uses k-means, a statistical model to classify objects from the Metropolitan Museum of Art's  7.6k Costume Institute items. The model was built using machine learning, as an unsupervised learning task.
-        <br><br>
-        <em>K-means Model</em><br><br>
-        The k-means model was trained on greyscale versions of images with accentuated outlines. For more information on the model, see <a href="">Model Build</a>
-      </p>
-    </div>
-
-  </div>
-
-</div>
-
-<div class="clear"></div>
-
 <!-- Full Cluster Map -->
 <div id="map">
-<!--   <h5><mark>Cluster Map: All Costume Institute Items from the MET</mark></h5> -->
 
   <div class="callout">
     <a href="all.html" target="_blank"><div class="launch">Launch the Complete Map</div></a>
@@ -299,10 +425,12 @@
     <img id="all" src="assets/all.png">
   </div>
 
-<div class="content">
+<!-- Annotated Map -->
+
+<div class="content" style="height:70vh;">
   <div class="section">
 
-    <div class="media-column">
+    <div class="media-column" style="margin-top:10%;">
    
       <button onclick="scrollDiv();">Reset Map</button>
 
@@ -319,22 +447,49 @@
       </div>
      </div>
 
-     <div class="side-column" style="float:left;"">
-      <h5><mark>Understanding the Clusters: An Annotated View</mark></h5>
-        <p>The clusters formed by focusing on colorblinded form are effective in cases and not so effective in others. 
-        <br><br>
+     <div class="side-column" style="float:left;margin-top:15%;">
+      <h1 style="font-family:Didot,serif;line-height:1em;">Understanding the Clusters: An Annotated View</h1>
+        <p>
         In the annotated version, clusters are circled and labeled by 1) Cluster ID, 2) observed cluster characteristics and 3) details regarding the composition of clusters i.e. average year, breakdown of items by body part.
         <br><br>
         <em>Explore The Annotated Map</em><br><br>
         Scroll left/right and up/down to explore the annotated version of the complete cluster map.
-        <br><br>
-        <em>Interactive Cluster Map</em><br><br>
-        For the interactive version, visit the <a href="index.html#map">live map</a>
       </p>
     </div>
 
   </div>
 </div>
+
+<script>
+
+    // Smooth Scroll
+
+  $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+     
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+
+</script>
 
 </body>
 </html>

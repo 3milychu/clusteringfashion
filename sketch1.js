@@ -4,7 +4,7 @@ var tcBlack = "#130C0E";
 // rest of vars
 var w = 700,
     h = 600,
-    maxNodeSize = 2,
+    maxNodeSize = 0,
     x_browser = 20,
     y_browser = 25,
     root;
@@ -15,8 +15,7 @@ var force = d3.layout.force();
 vis = d3.select("#vis")
   .append("svg")
   .attr("width", w)
-  .attr("height", h)
-  // .style('filter', 'url(#grayscale)');
+  .attr("height", h);
  
 d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json", function(json) {
 
@@ -29,13 +28,17 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
+            // return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
+            return (d.labels === "46") & (d.Title != "Title") });
 
   // create children hierarchy json
 
-var newData = { name :"root", 
+var newData = 
+      { 
+      name :"root", 
       path: "https://lh3.googleusercontent.com/-YADBvaC2hUQ/AAAAAAAAAAI/AAAAAAAAAEg/_fr6798_2Uo/photo.jpg", 
-      children : [] },
+      children : [] 
+    },
     levels = ["labels"];
 
 // For each data row, loop through the expected levels traversing the output tree
@@ -69,8 +72,8 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w / 2;
-  root.y = h / 4;
+  root.x = w/50;
+  root.y = h/5;
  
  
         // Build the path
@@ -94,11 +97,11 @@ function update() {
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
-        .gravity(0.05)
-    .charge(-500)
-    .linkDistance(0.005)
-    .friction(0.3)
-    .linkStrength(function(l, i) {return 1; })
+        .gravity(0.1)
+    .charge(-1000)
+    .linkDistance(5)
+    .friction(0.5)
+    .linkStrength(function(l, i) {return 0.5; })
     .size([w, h])
     .on("tick", tick)
         .start();
@@ -115,8 +118,7 @@ function update() {
   // Exit any old paths.
   path.exit().remove();
  
- 
- 
+
   // Update the nodes…
   var node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id; });
@@ -131,34 +133,35 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 30 || 2.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 30 || 0; })
       .style("fill", "#eee");
  
    
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return d.path;})
-        .attr("x", function(d) { return -10;})
-        .attr("y", function(d) { return -10;})
-        .attr("height", 25)
-        .attr("width", 25);
+        .attr("x", function(d) { return -20;})
+        .attr("y", function(d) { return -20;})
+        .attr("height", 40)
+        .attr("width", 40)
+        .style("z-index","0");
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Append hero text
-          .on( 'click', function (d) {
-              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
-              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-              d3.select("#featured").html("<img src='" + d.src + "'>"); 
-           })
+          // Append details text
+          // .on( 'click', function (d) {
+          //     d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+          //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+          //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+          //     // d3.select("#featured").html("<img src='" + d.src + "'>"); 
+          //  })
 
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -20;})
-              .attr("y", function(d) { return -20;})
+              .attr("x", function(d) { return -30;})
+              .attr("y", function(d) { return -30;})
               .attr("height", 50)
               .attr("width", 50);
           })
@@ -166,22 +169,40 @@ function update() {
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -12;})
-              .attr("y", function(d) { return -15;})
-              .attr("height", 25)
-              .attr("width", 25);
+              .attr("x", function(d) { return -20;})
+              .attr("y", function(d) { return -20;})
+              .attr("height", 40)
+              .attr("width", 40);
           });
 
-  // Append hero name on roll over next to the node as well
-  nodeEnter.append("text")
-      .attr("class", "nodetext")
-      .attr("x", x_browser -35)
-      .attr("y", y_browser +15)
-      .attr("fill", tcBlack)
-      .style("font-size","0.5em")
-      .style("z-index","101")
-      .text(function(d) { return "#" + d.labels + ": " + d.Title + ", " + d.objectBegin; });
- 
+  // Rollover functions
+
+  var rollover = nodeEnter.append("svg:image")
+        .attr("class", "nodeimage")
+        .attr("xlink:href", function(d) { return d.src; })
+        .style("height","100px")
+        .style("z-index","1")
+        .attr("x", x_browser -55)
+        .attr("y", y_browser -70)
+
+  var setEvents = rollover
+          // Append details text
+          .on( 'click', function (d) {
+              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              // d3.select("#featured").html("<img src='" + d.src + "'>"); 
+           })
+
+
+  // nodeEnter.append("text")
+  //     .attr("class", "nodetext")
+  //     .attr("x", x_browser -55)
+  //     .attr("y", y_browser -75)
+  //     .attr("fill", tcBlack)
+  //     .style("font-size","0.5em")
+  //     .style("z-index","101")
+  //     .text(function(d) { return "#" + d.labels + ": " + d.Title + ", " + d.objectBegin; });
  
   // Exit any old nodes.
   node.exit().remove();
@@ -216,8 +237,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 3), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 3), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/10 || 5), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/10 || 5), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  
@@ -226,8 +247,8 @@ function nodeTransform(d) {
  */ 
 function click(d) {
   if (d.children) {
-    d._children = d.children;
-    d.children = null;
+    // d._children = d.children;
+    // d.children = null;
   } else {
     d.children = d._children;
     d._children = null;

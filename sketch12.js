@@ -2,9 +2,9 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 800,
-    h = 1000,
-    maxNodeSize = 2,
+var w = 700,
+    h = 700,
+    maxNodeSize = 0,
     x_browser = 20,
     y_browser = 25,
     root;
@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json", function(json) {
 
   var format = d3.format("");
 
@@ -28,13 +28,19 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != "Title"});
+            // return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
+            return (d.labels === "43") & (d.Title != "Title") & (d.Title != "Petticoat") & (d.Title != "Underskirt") 
+            & (d.Title != "Dress") & (d.Title != "Gloves") & (d.Title != "Cap") & (d.Title != "Chemise") 
+            & (d.Title != "Domino")  });
 
   // create children hierarchy json
 
-var newData = { name :"root", 
+var newData = 
+      { 
+      name :"root", 
       path: "https://lh3.googleusercontent.com/-YADBvaC2hUQ/AAAAAAAAAAI/AAAAAAAAAEg/_fr6798_2Uo/photo.jpg", 
-      children : [] },
+      children : [] 
+    },
     levels = ["labels"];
 
 // For each data row, loop through the expected levels traversing the output tree
@@ -58,8 +64,8 @@ json.forEach(function(d){
         depthCursor = depthCursor[index].children;
         // This is a leaf, so add the last element to the specified branch
         if ( depth === levels.length - 1 ) depthCursor.push({ Title : d.Title, link : d.link, path : d.path, 
-          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, src : d.src,
-          labels: d.labels });
+          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, src : d.src , 
+          labels: d.labels});
     });
 });
 
@@ -68,8 +74,8 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w / 2.5;
-  root.y = h / 3;
+  root.x = w/40;
+  root.y = h/5.5;
  
  
         // Build the path
@@ -93,9 +99,9 @@ function update() {
   // Restart the force layout.
   force.nodes(nodes)
         .links(links)
-        .gravity(0.05)
-    .charge(-200)
-    .linkDistance(30)
+        .gravity(0.07)
+    .charge(-1500)
+    .linkDistance(5)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
@@ -114,8 +120,7 @@ function update() {
   // Exit any old paths.
   path.exit().remove();
  
- 
- 
+
   // Update the nodes…
   var node = vis.selectAll("g.node")
       .data(nodes, function(d) { return d.id; });
@@ -130,48 +135,49 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 40 || 1.5; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 30 || 0; })
       .style("fill", "#eee");
-
+ 
+   
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return d.path;})
-        .attr("x", function(d) { return -10;})
-        .attr("y", function(d) { return -10;})
-        .attr("height", 20)
-        .attr("width", 20);
-
+        .attr("x", function(d) { return -25;})
+        .attr("y", function(d) { return -30;})
+        .attr("height", 45)
+        .attr("width", 45);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
           // Append details text
           // .on( 'click', function (d) {
-          //     d3.select("h1").html(d.Title + " from cluster " + d.labels);  
+          //     d3.select("h1").html(d.Title + " from cluster " + d.labels); 
           //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
           //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-          //     d3.select("#featured").html("<img src='" + d.src + "'>"); 
+          //     // d3.select("#featured").html("<img src='" + d.src + "'>"); 
           //  })
 
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -15;})
-              .attr("y", function(d) { return -15;})
-              .attr("height", 30)
-              .attr("width", 30);
+              .attr("x", function(d) { return -45;})
+              .attr("y", function(d) { return -50;})
+              .attr("height", 60)
+              .attr("width", 60);
           })
           // set back
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -10;})
-              .attr("y", function(d) { return -10;})
-              .attr("height", 20)
-              .attr("width", 20);
+              .attr("x", function(d) { return -25;})
+              .attr("y", function(d) { return -30;})
+              .attr("height", 50)
+              .attr("width", 50);
           });
 
-  // Append hero name on roll over next to the node as well
+  // Append item name on roll over next to the node as well
+
   var rollover = nodeEnter.append("svg:image")
         .attr("class", "nodeimage")
         .attr("xlink:href", function(d) { return d.src; })
@@ -188,14 +194,22 @@ function update() {
               // d3.select("#featured").html("<img src='" + d.src + "'>"); 
            })
 
+
+  // nodeEnter.append("text")
+  //     .attr("class", "nodetext")
+  //     .attr("x", x_browser -55)
+  //     .attr("y", y_browser -75)
+  //     .attr("fill", tcBlack)
+  //     .style("font-size","0.5em")
+  //     .style("z-index","101")
+  //     .text(function(d) { return "#" + d.labels + ": " + d.Title + ", " + d.objectBegin; });
  
   // Exit any old nodes.
   node.exit().remove();
  
  
   // Re-select for update.
-  path = vis.selectAll("path.link")
-      .style("stroke-width","0.4px");
+  path = vis.selectAll("path.link");
   node = vis.selectAll("g.node");
  
 function tick() {
@@ -223,8 +237,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/10 || 5), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/10 || 5), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  

@@ -69,7 +69,7 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w / 2;
+  root.x = w / 2.5;
   root.y = h / 4;
  
  
@@ -145,13 +145,13 @@ function update() {
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Append hero text
-          .on( 'click', function (d) {
-              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
-              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-              d3.select("#featured").html("<img src='" + d.src + "'>"); 
-           })
+          // Append details text
+          // .on( 'click', function (d) {
+          //     d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+          //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+          //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+          //     d3.select("#featured").html("<img src='" + d.src + "'>"); 
+          //  })
 
           .on( 'mouseenter', function() {
             // select element in current context
@@ -172,17 +172,26 @@ function update() {
               .attr("width", 15);
           });
 
-  // Append hero name on roll over next to the node as well
-  nodeEnter.append("text")
-      .attr("class", "nodetext")
-      .attr("x", x_browser -35)
-      .attr("y", y_browser +15)
-      .attr("fill", tcBlack)
-      .style("font-size","0.5em")
-      .style("z-index","101")
-      .text(function(d) { return "#" + d.labels + ": " + d.Title + ", " + d.objectBegin; });
- 
- 
+
+  // Rollover functions
+
+  var rollover = nodeEnter.append("svg:image")
+        .attr("class", "nodeimage")
+        .attr("xlink:href", function(d) { return d.src; })
+        .style("height","100px")
+        .style("z-index","1")
+        .attr("x", x_browser -55)
+        .attr("y", y_browser -70)
+
+  var setEvents = rollover
+          // Append details text
+          .on( 'click', function (d) {
+              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              // d3.select("#featured").html("<img src='" + d.src + "'>"); 
+           })
+
   // Exit any old nodes.
   node.exit().remove();
  
@@ -226,8 +235,8 @@ function nodeTransform(d) {
  */ 
 function click(d) {
   if (d.children) {
-    d._children = d.children;
-    d.children = null;
+    // d._children = d.children;
+    // d.children = null;
   } else {
     d.children = d._children;
     d._children = null;

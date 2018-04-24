@@ -2,7 +2,7 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 1000,
+var w = 750,
     h = 1000,
     maxNodeSize = 2,
     x_browser = 20,
@@ -130,7 +130,7 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 60 || 1.5; })
+      .attr("r", function(d) { return 0; })
       .style("fill", "#eee");
  
    
@@ -139,18 +139,18 @@ function update() {
         .attr("xlink:href",  function(d) { return d.path;})
         .attr("x", function(d) { return -5;})
         .attr("y", function(d) { return -5;})
-        .attr("height", 10)
-        .attr("width", 10);
+        .attr("height", 5)
+        .attr("width", 5);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
-          // Append hero text
-          .on( 'click', function (d) {
-              d3.select("h1").html(d.Title + " from cluster " + d.labels);  
-              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-              d3.select("#featured").html("<img src='" + d.src + "'>"); 
-           })
+          // Append details text
+          // .on( 'click', function (d) {
+          //     d3.select("h1").html(d.Title + " from cluster " + d.labels);  
+          //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+          //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+          //     d3.select("#featured").html("<img src='" + d.src + "'>"); 
+          //  })
 
           .on( 'mouseenter', function() {
             // select element in current context
@@ -158,8 +158,8 @@ function update() {
               .transition()
               .attr("x", function(d) { return -10;})
               .attr("y", function(d) { return -10;})
-              .attr("height", 20)
-              .attr("width", 20);
+              .attr("height", 10)
+              .attr("width", 10);
           })
           // set back
           .on( 'mouseleave', function() {
@@ -167,21 +167,28 @@ function update() {
               .transition()
               .attr("x", function(d) { return -5;})
               .attr("y", function(d) { return -5;})
-              .attr("height", 10)
-              .attr("width", 10);
+              .attr("height", 5)
+              .attr("width", 5);
           });
 
-  // Append hero name on roll over next to the node as well
-  nodeEnter.append("text")
-      .attr("class", "nodetext")
-      .attr("x", x_browser -35)
-      .attr("y", y_browser +15)
-      .attr("fill", tcBlack)
-      .style("font-size","0.5em")
-      .style("z-index","101")
-      .text(function(d) { return "#" + d.labels + ": " + d.Title + ", " + d.objectBegin; });
- 
- 
+  // Rollover functions
+  var rollover = nodeEnter.append("svg:image")
+        .attr("class", "nodeimage")
+        .attr("xlink:href", function(d) { return d.src; })
+        .style("height","100px")
+        .style("z-index","1")
+        .attr("x", x_browser -55)
+        .attr("y", y_browser -70)
+
+  var setEvents = rollover
+          // Append details text
+          .on( 'click', function (d) {
+              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              // d3.select("#featured").html("<img src='" + d.src + "'>"); 
+           })
+
   // Exit any old nodes.
   node.exit().remove();
  

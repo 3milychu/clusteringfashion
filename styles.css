@@ -1,9 +1,125 @@
-.title {
-  text-align:center;
-  background-color:black;
-  color:white;
-  padding:2%;
+.fashion {
+  padding:20% 40% 20% 7%;
+  width:40%;
 }
+
+.fashion h1{
+  font-family: "Didot",serif;
+}
+
+#model-section {
+  background-color:#2b2625;
+  color:white;
+  height:100vh;
+  background-image: url("assets/model-section.png");
+  background-attachment: fixed;
+  background-size: 100% auto;
+}
+
+#century-section {
+  background-color:#2b2625;
+  color:white;
+  height:100vh;
+  background-image: url("assets/evolution.png");
+  background-attachment: fixed;
+  background-size: 100% auto;
+}
+/*Cluster Tutorial*/
+
+  #tutorial {
+    position:absolute;
+    margin:5% 32% 15% 32%;
+    width:30%;
+    text-align:center;
+    font-family: "Source Code Pro", Consolas, monaco, monospace;
+    line-height:2em;
+    z-index:101;
+    -webkit-transition: margin-top 1s; /* Safari */
+    transition: margin-top 1s;
+  }
+
+  #clusters {
+    width: 90%;
+    height: 100vh;
+    position: relative;
+    display:inline-block;
+    margin:5%;
+    z-index:0;
+  }
+
+  .label46{
+    width: 2%;
+    height: auto;
+    position: relative;
+    left:0px;
+    top:50%;
+    -webkit-transition: left 1s; /* Safari */
+    transition: left 1s;
+     -webkit-transition: top 2s; /* Safari */
+    transition: top 2s;
+  }
+
+  .label29 {
+    width: 2%;
+    height: auto;
+    position: relative;
+    left:0px;
+    top:50%;
+    -webkit-transition: left 1s; /* Safari */
+    transition: left 1s;
+     -webkit-transition: top 2s; /* Safari */
+    transition: top 2s;
+  }
+
+  #cluster-desc {
+    width:50%;
+    margin:auto;
+    margin-top:-12%;
+    margin-bottom:12%;
+    opacity:0;
+    -webkit-transition: opacity 1s; /* Safari */
+    transition: opacity 1s;
+    -webkit-transition: margin-top 2s; /* Safari */
+    transition: margin-top 2s;
+    font-size:1em;
+    font-weight:400;
+    }
+
+/*Main page */
+
+.title {
+  background-color:#2b2625;
+  color:white;
+  height:100vh;
+  background-image: url("assets/bg.png");
+  background-attachment: fixed;
+  background-size: auto 90%;
+  line-height:2.5em;
+  background-repeat:no-repeat;
+  background-position: bottom right; 
+}
+
+
+.header {
+  text-align:left;
+  width:30%;
+  padding:5%;
+  font-weight:400;
+  z-index:0;
+  display:block;
+}
+
+.header p {
+  display:block;
+  font-size:0.7em;
+  line-height:1.5em;
+  width:60%;
+}
+
+svg {
+  z-index:1;
+}
+
 
 button {
   background-color: #EE3124; 
@@ -12,10 +128,18 @@ button {
   padding:2%;
   font-family: "Source Code Pro", Consolas, monaco, monospace;
   cursor:pointer;
+  z-index:101;
 }
 
 button:hover {
   background-color:#AB9A84;
+}
+
+.next {
+  text-align:center;
+  position:absolute;
+  top:70%;
+  right:0%;
 }
 
 #zoom-in{
@@ -40,23 +164,43 @@ button:hover {
 
 .popout {
   position:absolute;
-  display:none;
-  width:60%;
+  width:30%;
   height:100%;
   background-color:white;
-  opacity:0.95;
-  padding:5% 20% 5% 20%;
+  right:0;
+  top:5%;
+  padding-right:5%;
+}
+.popout-heading {
+    padding-top:20%;
 }
 
-.popout mark {
-  line-height:1.2em;
-  background-color:yellow;
-  padding:0%;
+.popout-heading mark {
+  background-color:#2b2625;
+  color:white;
+  font-size:0.7em;
+  padding:2%;
+  line-height:4em;
 }
 
 .popout p {
   width:80%;
   white-space: pre-line;
+}
+
+.popout p mark {
+  text-decoration:underline;
+  line-height:1.5em;
+}
+
+.popout h1 {
+  width:80%;
+  white-space: pre-line;
+}
+
+.primitive {
+  width:20%;
+  display:block;
 
 }
 
@@ -82,7 +226,6 @@ button:hover {
 
 close {
   position:absolute;
-  margin-left:55%;
   margin-top:-5%;
   color:#EE3124;
   cursor:pointer;
@@ -111,7 +254,7 @@ info:hover {
 }
 
 .content {
-  background-color:black;
+  background-color:#2b2625;
   color:white;
 }
 
@@ -125,12 +268,12 @@ em {
   font-weight:600;
   text-decoration:none;
   text-transform:uppercase;
-  font-size:0.8em;
+  font-size:1em;
 }
 
 mark {
   background-color:white;
-  color:black;
+  color:#2b2625;
   padding:1%;
 }
 
@@ -165,7 +308,7 @@ p {
 #map {
   position:relative;
   width:100%;
-  height:100%;
+  height:100vh;
   overflow:hidden;
 }
 
@@ -176,13 +319,15 @@ p {
 }
 
 #map mark {
-  background-color:black;
+  background-color:#2b2625;
   color:white;
 }
 
 .section {
+  margin-top:-10%;
   width:100%;
   overflow:hidden;
+  display:block;
 }
 
 .content {
@@ -214,7 +359,7 @@ p {
   overflow-x: scroll;
   overflow-y:hidden;
   -webkit-overflow-scrolling: touch;
-  height:90vh;
+  height:110vh;
 }
 
 .videoWrapper {
@@ -240,23 +385,24 @@ p {
 
 .media-holder {
   position:relative;
-  width:60%;
+  width:100%;
+  padding-top:0;
+  margin-top:0;
   padding-bottom:75%;
   height:0;
   overflow:hidden;
   display:inline-grid;
-  padding-left:5%;
-  padding-right:5%;
+  padding-left:0%;
 }
 
 .media-holder iframe {
   position:absolute;
-  top:2%;
+  top:0%;
   left:0;
   width:100%;
   height:100%;
   padding:3%;
-  padding-left:10%;
+  padding-left:8%;
 }
 
 /*.map-img {
@@ -305,6 +451,7 @@ body {
   font-family: "Source Code Pro", Consolas, monaco, monospace; 
   margin: 0; 
   width:100%;
+  color: #2b2625;
 }
 
 path.link {
@@ -320,6 +467,10 @@ path.link {
   display: none;
 }
 
+.node:not(:hover) .nodeimage{
+  display: none;
+}
+
 h4 { 
   font-size:1em; 
   text-transform: uppercase; 
@@ -328,8 +479,6 @@ h4 {
   margin:0;
   width:100%;
 }
-
-
 
 h1 { 
   font-size: 2.5em; 
@@ -455,18 +604,29 @@ a:active {
 
 /*Responsive*/
 
- @media screen and (min-width:2000px) {
+ @media screen and (min-width:1600px) {
+   .popout {
+     margin-right:0%;
+   }
   .media-holder {
-      width:80%;
+      width:100%;
       top:-5%;
-      margin-left:-10%;
+      margin-left:0%;
+     
     }
   .media-holder iframe {
-      transform: scale(1.8);
+      transform: scale(1.3);
       transform-origin: 0 0;
+      padding-left:5%;
+  }
+  .next {
+    top:60%;
+  }
+  #CR {
+    padding-left:5%;
   }
   .about {
-    margin-left:70%;
+    margin-left:90%;
   }
   .media-column {
     padding: 3% 5%;
@@ -478,9 +638,9 @@ a:active {
     font-size:1.2em;
   }
   close {
-    margin-top:-2%;
-    margin-left:52%;
-    font-size:3em;
+    margin-top:5%;
+    margin-left:65%;
+    font-size:2em;
   }
   .launch {
     font-size:4em;
@@ -540,4 +700,3 @@ a:active {
     font-size:2em;
   }
  }
-
