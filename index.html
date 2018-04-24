@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Disentangling Form: Using machines to draw geometric patterns in what we wear</title>
+    <title>Form in Style: The Data Behind the Forms We Wear</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
@@ -118,8 +118,16 @@
 
   function scrollDiv(){
     var elmnt = document.getElementById("map-img-parent");
-    elmnt.scrollLeft = 2600;
-    elmnt.scrollTop = 1800;
+    elmnt.scrollLeft = 500;
+    elmnt.scrollTop = 500;
+  }
+
+  function zoomin() {
+    document.getElementById('my_map').style.width = "+100px;"
+  }
+
+  function zoomout() {
+    document.getElementById('my_map').style.width = "-100px;"
   }
 
 </script>
@@ -132,7 +140,7 @@
     <div class="title">
       <div class="header">
          <p>A data visualization by <a href="https://3milychu.github.io" target="_blank">Emily Chu</a></p>
-         <h1 style="font-family:Didot, serif;">Image, Form, Clusters: The Emergence of our Style</h1>
+         <h1 style="font-family:Didot, serif;">Form in Style: The Data Behind the Forms We Wear</h1>
 <!--          <mark><h4 style="display:inline;">Fashion + Data </h4></mark> -->
         <p >
         <br>
@@ -146,7 +154,7 @@
 <!-- Cluster Tutorial -->
 <div>
     <div id="tutorial">
-      <h1 style="font-family:Didot, serif;">Creating clusters</h1>
+      <h1 style="font-family:Didot, serif;">What is clustering?</h1>
       <button id="resetTutorial" onclick="reset();">Where We Start</button>
       <button id="playTutorial" onclick="play();">What We Want</button>
       <a href="#model-section"><button style="text-align:center;">Featured Findings</button></a>
@@ -422,12 +430,12 @@
       </div>
     </div>
 
-    <img id="all" src="assets/all.png">
+    <img id="all" src="assets/all-clean.png">
   </div>
 
 <!-- Annotated Map -->
 
-<div class="content" style="height:70vh;">
+<div class="content">
   <div class="section">
 
     <div class="media-column" style="margin-top:10%;">
@@ -437,11 +445,11 @@
       <div class="map-img" id="map-img-parent">
         <div id="map-img">
           <div class="controls">
-              <button id="zoom-in">+</button>
-              <button id="zoom-out">-</button>
+              <button id="zoom-in" onclick="zoomin();">+</button>
+              <button id="zoom-out" onclick="zoomout();">-</button>
           </div>
 
-          <img id="my_map" src="assets/all.png">
+          <img id="my_map" src="assets/all.png" style="width:3000px;">
 
         </div>
       </div>
@@ -450,7 +458,8 @@
      <div class="side-column" style="float:left;margin-top:15%;">
       <h1 style="font-family:Didot,serif;line-height:1em;">Understanding the Clusters: An Annotated View</h1>
         <p>
-        In the annotated version, clusters are circled and labeled by 1) Cluster ID, 2) observed cluster characteristics and 3) details regarding the composition of clusters i.e. average year, breakdown of items by body part.
+        <br><br>
+        In the annotated version, clusters are annotated with the most minimal explanation of its 1) Orientation, 2) Distribution 3) Composition.
         <br><br>
         <em>Explore The Annotated Map</em><br><br>
         Scroll left/right and up/down to explore the annotated version of the complete cluster map.
