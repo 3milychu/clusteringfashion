@@ -1,4 +1,10 @@
 function setup() {
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+           $('#century-section').parent().hide();
+           $('#century-clusters').parent().hide();
+    };
+
 	noCanvas();
 
 	getClusters();
