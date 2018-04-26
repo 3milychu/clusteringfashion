@@ -4,6 +4,10 @@ function setup() {
            $('#century-section').hide();
            $('#century-clusters').hide();
            $('#annotated-map').hide();
+           $('#CR').hide();
+           $('#UC').hide();
+           $('#XT').hide();
+           $('#mobile-cta').css("display", "inline");
     };
 
 	noCanvas();

@@ -513,6 +513,10 @@ a:hover {
 a:active { 
   color: #EE3124; }
 
+#mobile-cta {
+  display:none;
+}
+
 .callout {
   margin-top:15%;
   margin-left: 10%;
