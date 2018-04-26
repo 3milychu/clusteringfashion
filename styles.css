@@ -817,17 +817,17 @@ a:active {
     margin-right:5%;
     margin-top:2%;
     display:block;
-    padding:1%;
-    font-size:2em;
+    padding:0% 1%;
+    font-size:5em;
   }
   #zoom-out{
     position:absolute;
     right:0;
     margin-right:5%;
-    margin-top:9.5%;
+    margin-top:10%;
     display:block;
-    padding:1%;
-    font-size:2em;
+    padding:0% 1%;
+    font-size:5em;
   }
   #map {
     height:60vh;
