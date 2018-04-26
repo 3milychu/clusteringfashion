@@ -78,7 +78,7 @@ json.forEach(function(d){
  
   root = newData;
   root.fixed = true;
-  root.x = w / 2;
+  root.x = w / 2.5;
   root.y = h / 4;
  
  
@@ -104,7 +104,7 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-150)
+    .charge(-200)
     .linkDistance(1)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
@@ -243,8 +243,8 @@ function nodeTransform(d) {
  */ 
 function click(d) {
   if (d.children) {
-    d._children = d.children;
-    d.children = null;
+    // d._children = d.children;
+    // d.children = null;
   } else {
     d.children = d._children;
     d._children = null;
