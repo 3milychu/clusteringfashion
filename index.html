@@ -80,38 +80,54 @@
     document.getElementById("popout7").style.display = "none";
   }
 
+  function showPopout8 () {
+    document.getElementById("popout8").style.display = "inline";
+  }
+
+  function closePopout8 () {
+    document.getElementById("popout8").style.display = "none";
+  }
+
   function scroll1() {
-      $(function() {
-        $('#next1').bind('click',function(event){
-            $('#scroll-post-1').clearQueue().stop().animate({
-                scrollLeft: $('#CR').offset().left
-            }, 500);
-            event.preventDefault();
-        });
-        });
+    $('#scroll-post-1').stop().animate({
+      scrollLeft: $('#CR').offset().left
+    }, 500);
+    event.preventDefault();
+  }
+
+  function scroll2() {
+    $('#scroll-post-1').stop().animate({
+      scrollLeft: $('#UC')[0].offsetLeft
+    }, 500);
+    event.preventDefault();
+  }
+
+  function scroll3() {
+  $('#scroll-post-1').stop().animate({
+    scrollLeft: $('#XT')[0].offsetLeft
+  }, 500);
+  event.preventDefault();
   };
 
-    function scroll2() {
-      $(function() {
-        $('#next2').bind('click',function(event){
-            $('#scroll-post-1').clearQueue().stop().animate({
-                scrollLeft: $('#UC').offset().left
-            }, 500);
-            event.preventDefault();
-        });
-        });
-      // $('#scroll-post-1').scrollTo('#UC')
+  function scroll4() {
+  $('#century-clusters').stop().animate({
+    scrollLeft: $('#17century').offset().left
+  }, 500);
+  event.preventDefault();
   };
 
-      function scroll3() {
-      $(function() {
-        $('#next3').bind('click',function(event){
-            $('#scroll-post-1').clearQueue().stop().animate({
-                scrollLeft: $('#XT').offset().left
-            }, 500);
-            event.preventDefault();
-        });
-        });
+  function scroll5() {
+  $('#century-clusters').stop().animate({
+    scrollLeft: $('#18century')[0].offsetLeft
+  }, 500);
+  event.preventDefault();
+  };
+
+   function scroll6() {
+  $('#century-clusters').stop().animate({
+    scrollLeft: $('#20century')[0].offsetLeft
+  }, 500);
+  event.preventDefault();
   };
 
   window.onload = scrollDiv;
@@ -134,6 +150,7 @@
 
 </head>
 <body>
+
 
 <!-- Header -->
 
@@ -192,8 +209,8 @@
   
   <div class="scroll-post" id="scroll-post-1">
 
-    <div class="media-holder">
-        <iframe id="DB" width="315" height="560" src="dancingbell.html" scrolling="no" frameBorder="0"></iframe>
+    <div class="media-holder" id="DB">
+        <iframe width="315" height="560" src="dancingbell.html" scrolling="no" frameBorder="0"></iframe>
         <div class="about" onclick="showPopout1();">
           ?
         </div>
@@ -215,8 +232,8 @@
         <button class="next" id="next1" onclick="scroll1();">Next: The Classic Rectangle</button>
     </div>
 
-     <div class="media-holder" style="margin-left:5%;">
-        <iframe id="CR" width="315" height="560" src="rectangle.html" scrolling="no" frameBorder="0"></iframe>
+     <div class="media-holder" style="margin-left:5%;" id="CR">
+        <iframe width="315" height="560" src="rectangle.html" scrolling="no" frameBorder="0"></iframe>
         <div class="about" onclick="showPopout2();">
           ?
         </div>
@@ -260,8 +277,8 @@
         <button class="next" id="next3" onclick="scroll3();">Next: The X-Torso</button>
     </div>
 
-    <div class="media-holder">
-        <iframe id="XT" width="315" height="560" src="xtorso.html" scrolling="no" frameBorder="0"></iframe>
+    <div class="media-holder" id="XT">
+        <iframe width="315" height="560" src="xtorso.html" scrolling="no" frameBorder="0"></iframe>
         <div class="about" onclick="showPopout4();">
           ?
         </div>
@@ -282,7 +299,6 @@
         </div>
         <a href="#century-section"><button class="next" id="next4">Next: Evolution Across Centuries</button></a>
     </div>
-
 </div>
  <div class="clear" style="margin:10%;">
 </div>
@@ -303,8 +319,8 @@
 <!-- Highlights by century-->
 <div class="scroll-post" id="century-clusters">
 
-      <div class="media-holder">
-        <iframe id="century" width="315" height="560" src="16thcentury.html" scrolling="no" frameBorder="0"></iframe>
+      <div class="media-holder" id="century">
+        <iframe width="315" height="560" src="16thcentury.html" scrolling="no" frameBorder="0"></iframe>
 
        <div class="about" onclick="showPopout5();">
         ?
@@ -325,11 +341,11 @@
         <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
         </p>
       </div>
-      <button class="next" id="next5" onclick="scroll5();">Next: 17th Century</button>
+      <button class="next" id="next5" onclick="scroll4();">Next: 17th Century</button>
     </div>
 
-    <div class="media-holder">
-        <iframe id="century" width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
+    <div class="media-holder" id="17century">
+        <iframe width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
 
        <div class="about" onclick="showPopout6();">
         ?
@@ -340,7 +356,7 @@
 
         <div class="popout-heading">
           <mark>All Clusters, filtered by 17th century</mark>
-          <h1 style="font-family:Didot,serif;">1600s</h1>
+          <h1 style="font-family:Didot,serif;">1600-1700</h1>
         </div>
 
         <p><em>Items from the 17th century</em> show an emergence of distinct clusters in form in comparison to the 16th century.
@@ -354,11 +370,11 @@
         <mark>However, it is evident that the clarity of strong standardized forms do not appear yet in this century</mark>
         </p>
       </div>
-      <button class="next" id="next4" onclick="scroll4();">Next: 17th Century</button>
+      <button class="next" id="next4" onclick="scroll5();">Next: 18th Century</button>
     </div>
 
-    <div class="media-holder">
-        <iframe id="century" width="315" height="560" src="17thcentury.html" scrolling="no" frameBorder="0"></iframe>
+    <div class="media-holder" id="18century">
+        <iframe width="315" height="560" src="18thcentury.html" scrolling="no" frameBorder="0"></iframe>
 
        <div class="about" onclick="showPopout7();">
         ?
@@ -369,39 +385,14 @@
 
         <div class="popout-heading">
           <mark>All Clusters, filtered by 18th century</mark>
-          <h1 style="font-family:Didot,serif;">1700s</h1>
+          <h1 style="font-family:Didot,serif;">1700-1800</h1>
         </div>
 
-        <p><em>Items from the 18th century</em> are growing increasingly easy to cluster by form.
+        <p><em>Items from the 18th century</em> cluster the best by form out of all the centuries examined. Note: 42 clusters not shown due to space limitations. The edited version here is a good representation that conveys how the vocabulary of style became very apparent, with strong forms.
 
         This makes sense when we consider advancements in textile manufacturing in this century, including <a href="https://en.wikipedia.org/wiki/Flying_shuttle">John Kay's Flying Shuttle (1733)</a> and <a href="https://en.wikipedia.org/wiki/Spinning_mule">Samuel Crompton's Spinning Mule (1769)</a>.
 
         <mark>This supports the hypothesis that clustering by form pulls out the most standardized shapes - most likely created after the Industrial Revolution  - as a result of mechanical reproduction.</mark>
-        </p>
-      </div>
-      <button class="next" id="next6" onclick="scroll6();">Next: 20th Century</button>
-    </div>
-
-    <div class="media-holder">
-        <iframe id="century" width="315" height="560" src="19thcentury.html" scrolling="no" frameBorder="0"></iframe>
-
-       <div class="about" onclick="showPopout8();">
-        ?
-      </div>
-
-      <div class="popout" id="popout8">
-        <close onclick="closePopout8();">x</close>
-
-        <div class="popout-heading">
-          <mark>All Clusters, filtered by 20th century</mark>
-          <h1 style="font-family:Didot,serif;">1900s</h1>
-        </div>
-
-        <p><em>Items from the 20th century</em> do not seem to cluster very well when focusing on form.
-
-        This limitation may be due to the relatively smaller number of items in the collection from the 19th century.
-
-        <mark>This might also be another indication that form is only particularly effective at grouping items that are produced after mechanical production, since those that were produced before were not as standardized in form.</mark>
         </p>
       </div>
       <a href="#map"><button class="next" id="next4">Next: The Complete Cluster Map</button></a>

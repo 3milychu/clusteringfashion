@@ -83,6 +83,7 @@
     transition: margin-top 2s;
     font-size:1em;
     font-weight:400;
+    z-index:1;
     }
 
 /*Main page */
@@ -138,7 +139,7 @@ button:hover {
 .next {
   text-align:center;
   position:absolute;
-  top:70%;
+  top:65%;
   right:0%;
 }
 
@@ -762,6 +763,9 @@ a:active {
   }
   .about {
     margin-left:80%;
+    width:auto;
+    padding:3%;
+    font-size:3em;
   }
   close {
     font-size:5em;
@@ -814,5 +818,8 @@ a:active {
     display:block;
     padding:1%;
     font-size:2em;
+  }
+  #map {
+    height:60vh;
   }
  }
