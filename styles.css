@@ -689,12 +689,18 @@ a:active {
      font-size:2em;
    }
    .title {
-     width:100vh;
-     height:100vh;;
+     background-repeat:no-repeat;
+     background-attachment:scroll!important;
+     background-position: right bottom;
+     background-size: 100% auto;
+   }
+   .title button {
+     display:none;
    }
   
   .header{
     width:90%;
+    height:90%;
     background-color:black;
     opacity:0.8;
   }
