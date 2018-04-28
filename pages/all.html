@@ -5,7 +5,7 @@
     <title>Clustering Fashion with K-Means</title>
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
 
      <script>
       function convert1() {
@@ -23,38 +23,26 @@
 
 <body>
 
-    <header style="margin-left:5%;">
-      <h4 style="font-size:1em;line-height:0.5em;cursor:pointer">Footwear
-        <info style="font-size:1em;vertical-align:top;" title="Dataset filtered by items classified as footwear">&#8505;</info></h4>
-
+    <header style="margin-left:5%;margin-top:5%;position:fixed;background-color:white;border:1px black solid;padding:2%;opacity:0.9">
+       <h4 style="font-size:1em;line-height:1em;">Costume Institute Cluster Map</h4>
       <label style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert1();">Color</label>
-      <info style="font-size:1em;vertical-align:middle;" title="Actual images in the original dataset">&#8505;</info>
-
        <label style="font-size:0.5em;line-height:0.5em;display:inline;">|</label>
-
-      <label style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert2();">Grayscale</label>
-      <info style="font-size:1em;vertical-align:middle;" title="Essentially what the machine saw (B&W outlines of each object)">&#8505;</info>
-
-      <br>
-
+      <label style="font-size:0.5em;line-height:0.5em;display:inline;cursor:pointer;" onclick="convert2();">Grayscale</label><br>
       <h1 style="font-size:0.8em;line-height:0.8em;"></h1>
-
       <h2 style="font-size:0.5em">Click an item to explore</h2>
-
       <h3 style="font-size:0.5em"></h3>
-
       <div id="featured"></div>
     </header>
     <!-- container for force layout visualisation  -->
     <section id="vis"></section> 
 
-    <svg x=0 y=0 width=500 height=500>
+    <svg x=0 y=0 width=10 height=10>
      <filter id="grayscale">
       <feColorMatrix type="matrix" values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
      </filter>
     </svg>
 
-<script type="text/javascript" src="sketch2.js"></script>
+<script type="text/javascript" src="../js/sketch3.js"></script>
 
 </body>
 </html>
