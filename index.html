@@ -130,22 +130,6 @@
   event.preventDefault();
   };
 
-  window.onload = scrollDiv;
-
-  function scrollDiv(){
-    var elmnt = document.getElementById("map-img-parent");
-    elmnt.scrollLeft = 500;
-    elmnt.scrollTop = 500;
-  }
-
-  function zoomin() {
-    document.getElementById('my_map').style.width = "+100px;"
-  }
-
-  function zoomout() {
-    document.getElementById('my_map').style.width = "-100px;"
-  }
-
 </script>
 
 </head>
@@ -330,7 +314,7 @@
         <close onclick="closePopout5();">x</close>
 
         <div class="popout-heading">
-          <mark>All Clusters, filtered by <= 16th century</mark>
+          <mark>All Clusters, filtered by < 16th century</mark>
           <h1 style="font-family:Didot,serif;"><= 1600</h1>
         </div>
 
@@ -356,7 +340,7 @@
 
         <div class="popout-heading">
           <mark>All Clusters, filtered by 17th century</mark>
-          <h1 style="font-family:Didot,serif;">1600-1700</h1>
+          <h1 style="font-family:Didot,serif;">1600-1699</h1>
         </div>
 
         <p><em>Items from the 17th century</em> show an emergence of distinct clusters in form in comparison to the 16th century.
@@ -385,7 +369,7 @@
 
         <div class="popout-heading">
           <mark>All Clusters, filtered by 18th century</mark>
-          <h1 style="font-family:Didot,serif;">1700-1800</h1>
+          <h1 style="font-family:Didot,serif;">1700-1799</h1>
         </div>
 
         <p><em>Items from the 18th century</em> cluster the best by form out of all the centuries examined. Note: 42 clusters not shown due to space limitations. The edited version here is a good representation that conveys how the vocabulary of style became very apparent, with strong forms.
@@ -411,8 +395,8 @@
 <div id="map">
 
   <div class="callout">
-    <a href="all.html" target="_blank"><div class="launch">Launch the Complete Map</div></a>
-    <p><em>Due to image loading limitations in Chrome and Mozilla, the interactive must be opened in Safari.</em></p>
+    <a href="pages/clustermap.html" target="_blank"><div class="launch">Launch the Complete Map</div></a>
+    <br>
 
       <div class="typewriter">
           <h1 id="subtitle1">model: k-means</h1>
@@ -423,42 +407,6 @@
 
     <img id="all" src="assets/all-clean.png">
   </div>
-
-<!-- Annotated Map -->
-
-<div class="content" id="annotated-map">
-  <div class="section">
-
-    <div class="media-column" style="margin-top:10%;">
-   
-      <button onclick="scrollDiv();">Reset Map</button>
-
-      <div class="map-img" id="map-img-parent">
-        <div id="map-img">
-          <div class="controls">
-              <button id="zoom-in" onclick="zoomin();">+</button>
-              <button id="zoom-out" onclick="zoomout();">-</button>
-          </div>
-
-          <img id="my_map" src="assets/all.png" style="width:3000px;">
-
-        </div>
-      </div>
-     </div>
-
-     <div class="side-column" style="float:left;margin-top:15%;">
-      <h1 style="font-family:Didot,serif;line-height:1em;">Understanding the Clusters: An Annotated View</h1>
-        <p>
-        <br><br>
-        In the annotated version, clusters are annotated with the most minimal explanation of its 1) Orientation, 2) Distribution 3) Composition.
-        <br><br>
-        <em>Explore The Annotated Map</em><br><br>
-        Scroll left/right and up/down to explore the annotated version of the complete cluster map.
-      </p>
-    </div>
-
-  </div>
-</div>
 
 <!-- Mobile CTA -->
 <div class="content" id="mobile-cta">

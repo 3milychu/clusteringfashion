@@ -31,7 +31,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
             // return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
             return (d.labels === "43") & (d.Title != "Title") & (d.Title != "Petticoat") & (d.Title != "Underskirt") 
             & (d.Title != "Dress") & (d.Title != "Gloves") & (d.Title != "Cap") & (d.Title != "Chemise") 
-            & (d.Title != "Domino")  });
+            & (d.Title != "Domino")});
 
   // create children hierarchy json
 

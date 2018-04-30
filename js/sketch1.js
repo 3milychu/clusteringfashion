@@ -29,7 +29,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
 
   json = json.filter(function(d) { 
             // return (d.labels === "46" | d.labels === "29") & (d.Title != "Title") });
-            return (d.labels === "46") & (d.Title != "Title")  & (d.objectBegin <= 1600) });
+            return (d.labels === "46") & (d.Title != "Title")});
 
   // create children hierarchy json
 

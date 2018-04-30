@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 10000,
-    h = 10000,
+var w = 1500,
+    h = 1000,
     maxNodeSize = 1,
     x_browser = 20,
     y_browser = 25,
@@ -28,7 +28,8 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != "Title"});
+            return (d.Title != "Title") & (d.labels == 1) 
+            & (d.objectBegin < 2000) & (d.objectBegin >= 1900)});
 
   // create children hierarchy json
 

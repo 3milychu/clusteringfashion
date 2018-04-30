@@ -3,7 +3,7 @@ var tcBlack = "#130C0E";
 
 // rest of vars
 var w = 750,
-    h = 1000,
+    h = 900,
     maxNodeSize = 2,
     x_browser = 20,
     y_browser = 25,
@@ -104,8 +104,8 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-200)
-    .linkDistance(1)
+    .charge(-150)
+    .linkDistance(0.5)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])

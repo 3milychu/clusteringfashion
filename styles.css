@@ -136,32 +136,15 @@ button:hover {
   background-color:#AB9A84;
 }
 
+.fixed {
+  position:fixed;
+}
 .next {
   text-align:center;
   position:absolute;
   top:65%;
   right:0%;
 }
-
-#zoom-in{
-  position:absolute;
-  right:0;
-  margin-right:23%;
-  margin-top:3%;
-  display:block;
-  padding:1%;
-  font-weight:600;
-}
-#zoom-out{
-  position:absolute;
-  right:0;
-  margin-right:23%;
-  margin-top:8%;
-  display:block;
-  padding:1%;
-  font-weight:600;
-}
-
 
 .popout {
   position:absolute;
@@ -406,30 +389,44 @@ p {
   padding-left:8%;
 }
 
-/*.map-img {
-  position:relative;
-  width:100%;
-  padding-bottom:75%;
-  height:0;
-  overflow-x:scroll;
-  display:inline-grid;
-  border:1px solid black;
-}*/
-
 .map-img {
-  width:80%;
-  height:45vh;
+  width:100%;
+  height:100vh;
   overflow: auto;
   background-color:white;
 }
 
-/*#map-img {
-  overflow-y:scroll;
-}*/
+#map-img-parent {
+  transition: 1s ease;
+}
 
 #my_map {
   margin-left:-50%;
   margin-top:-5%;
+  transform:scale(0.5);
+  transition: 1s ease;
+  z-index:-1;
+}
+
+.controls {
+  z-index:100;
+  top:75%;
+  left:95%;
+  opacity:0.95;
+}
+
+.controls button {
+    display:block;
+    margin:5%;
+    padding:20%;
+    font-size:0.8em;
+    float:right;
+  }
+
+#zoom-in, #zoom-out {
+  font-size:1em;
+  padding:5% 12% 5% 12%;
+  display:inline-block;
 }
 
 .map-img iframe {
@@ -653,14 +650,6 @@ a:active {
   em {
     font-size:1em;
   }
-  #zoom-in {
-    margin-right:30%;
-    margin-top:3%;
-  }
-  #zoom-out {
-    margin-right:30%;
-    margin-top:6%;
-  }
   }
 
   @media screen and (max-width:1100px) {
@@ -807,27 +796,6 @@ a:active {
     padding:0%;
     display:block;
     padding-top:-5%;
-  }
-  .map-img{
-    width:100%;
-  }
-  #zoom-in{
-    position:absolute;
-    right:0;
-    margin-right:5%;
-    margin-top:2%;
-    display:block;
-    padding:0% 1%;
-    font-size:5em;
-  }
-  #zoom-out{
-    position:absolute;
-    right:0;
-    margin-right:5%;
-    margin-top:10%;
-    display:block;
-    padding:0% 1%;
-    font-size:5em;
   }
   #map {
     height:60vh;

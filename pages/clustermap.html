@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Complete Cluster Map</title>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=GFS+Didot" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+<script>
+
+// onLoad position image
+window.onload = scrollDiv;
+function scrollDiv(){
+var elmnt = document.getElementById("map-img-parent");
+elmnt.scrollLeft = 3200;
+elmnt.scrollTop = 4500;
+}
+
+// onLoad create zoomin/zoomout capability
+$( window ).on( "load", function() {
+
+(function () {
+var currentScale = 0.5;
+
+var cssPrefixesMap = [
+    'scale',
+    '-webkit-transform',
+    '-moz-transform',
+    '-ms-transform',
+    '-o-transform',
+    'transform'];
+
+function setScale(scale) {
+    var scaleCss = {};
+
+    cssPrefixesMap.forEach(function (prefix) {
+        scaleCss[prefix] = 'scale(' + scale + ')';
+    });
+
+    $('#my_map').css(scaleCss);
+}
+
+$("#zoom-out").click(function () {
+    setScale(currentScale = currentScale - 0.1);
+});
+
+$("#zoom-in").click(function () {
+    setScale(currentScale = currentScale + 0.1);
+});
+
+})();
+});
+
+</script>
+
+</head>
+<body>
+
+<div>
+
+      <div class="map-img" id="map-img-parent">
+      	 <div class="controls" style="position:fixed;">
+          	  <button onclick="scrollDiv();">Reset</button>
+              <button id="zoom-in">+</button>
+              <button id="zoom-out">-</button>
+          </div>
+        <div id="map-img">
+
+          <img id="my_map" src="../assets/all.jpg">
+
+        </div>
+      </div>
+
+</div>
+
+</body>
+</html>

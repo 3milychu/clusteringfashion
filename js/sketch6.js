@@ -15,8 +15,7 @@ var force = d3.layout.force();
 vis = d3.select("#vis")
   .append("svg")
   .attr("width", w)
-  .attr("height", h)
-  // .style('filter', 'url(#grayscale)');
+  .attr("height", h);
  
 d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_17.json", function(json) {
 
@@ -29,7 +28,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return d.Title != "Title" });
+            return d.Title != "Title"});
 
   // create children hierarchy json
 
@@ -59,8 +58,8 @@ json.forEach(function(d){
         depthCursor = depthCursor[index].children;
         // This is a leaf, so add the last element to the specified branch
         if ( depth === levels.length - 1 ) depthCursor.push({ Title : d.Title, link : d.link, path : d.path, 
-          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, src : d.src , 
-          labels: d.labels});
+          objectBegin : d.objectBegin, size : d.size, Culture : d.Culture, Medium : d.Medium, src : d.src,
+          labels: d.labels });
     });
 });
 
@@ -95,8 +94,8 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-100)
-    .linkDistance(1)
+    .charge(-200)
+    .linkDistance(30)
     .friction(0.5)
     .linkStrength(function(l, i) {return 1; })
     .size([w, h])
@@ -131,23 +130,23 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return 0; })
+      .attr("r", function(d) { return Math.sqrt(d.size) / 40 || 1.5; })
       .style("fill", "#eee");
- 
-   
+
   // Append images
   var images = nodeEnter.append("svg:image")
         .attr("xlink:href",  function(d) { return d.path;})
-        .attr("x", function(d) { return -5;})
-        .attr("y", function(d) { return -5;})
-        .attr("height", 15)
-        .attr("width", 15);
+        .attr("x", function(d) { return -10;})
+        .attr("y", function(d) { return -10;})
+        .attr("height", 20)
+        .attr("width", 20);
+
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
           // Append details text
           // .on( 'click', function (d) {
-          //     d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+          //     d3.select("h1").html(d.Title + " from cluster " + d.labels);  
           //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
           //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
           //     d3.select("#featured").html("<img src='" + d.src + "'>"); 
@@ -157,19 +156,19 @@ function update() {
             // select element in current context
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -10;})
-              .attr("y", function(d) { return -10;})
-              .attr("height", 25)
-              .attr("width", 25);
+              .attr("x", function(d) { return -15;})
+              .attr("y", function(d) { return -15;})
+              .attr("height", 30)
+              .attr("width", 30);
           })
           // set back
           .on( 'mouseleave', function() {
             d3.select( this )
               .transition()
-              .attr("x", function(d) { return -5;})
-              .attr("y", function(d) { return -5;})
-              .attr("height", 15)
-              .attr("width", 15);
+              .attr("x", function(d) { return -10;})
+              .attr("y", function(d) { return -10;})
+              .attr("height", 20)
+              .attr("width", 20);
           });
 
   // Append hero name on roll over next to the node as well
@@ -177,7 +176,6 @@ function update() {
         .attr("class", "nodeimage")
         .attr("xlink:href", function(d) { return d.src; })
         .style("height","100px")
-        .style("z-index","1")
         .attr("x", x_browser -55)
         .attr("y", y_browser -70)
 
@@ -196,7 +194,8 @@ function update() {
  
  
   // Re-select for update.
-  path = vis.selectAll("path.link");
+  path = vis.selectAll("path.link")
+      .style("stroke-width","0.4px");
   node = vis.selectAll("g.node");
  
 function tick() {
@@ -224,8 +223,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/5|| 0.5), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/5 || 0.5), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  

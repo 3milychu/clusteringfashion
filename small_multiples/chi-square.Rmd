@@ -1,0 +1,50 @@
+---
+title: "Evolution of Form in Style Analysis"
+output: html_notebook
+---
+```{r}
+# subsets by century
+before1600 <- subset(costume_kmeans, objectBegin < 1600)
+century_17 <- subset(costume_kmeans, (objectBegin >= 1600) & (objectBegin < 1700))
+century_18 <- subset(costume_kmeans, (objectBegin >= 1700) & (objectBegin < 1800))
+century_19 <- subset(costume_kmeans, (objectBegin >= 1800) & (objectBegin < 1900))
+century_20 <- subset(costume_kmeans, objectBegin >= 1900)
+```
+
+```{r}
+# chi square for items < 1600
+options(scipen = 999)
+library(gmodels)
+CrossTable(before1600$labels, before1600$bodyclass1, expected=TRUE, format="SPSS")
+
+```
+
+```{r}
+# chisquare for items 1600-1699
+
+CrossTable(century_17$labels, century_17$bodyclass1, expected=TRUE, format="SPSS")
+```
+
+```{r}
+# chisquare for items 1700-1799
+
+CrossTable(century_18$labels, century_18$bodyclass1, expected=TRUE, format="SPSS")
+```
+
+```{r}
+# chisquare for items 1800-1899
+
+CrossTable(century_19$labels, century_19$bodyclass1, expected=TRUE, format="SPSS")
+```
+
+```{r}
+# chisquare for items 1800-1899
+
+CrossTable(century_19$labels, century_19$bodyclass1, expected=TRUE, format="SPSS")
+```
+```{r}
+# chisquare for items 1900-1999
+
+CrossTable(century_$labels, century_20$bodyclass1, expected=TRUE, format="SPSS")
+```
+
