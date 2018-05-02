@@ -607,6 +607,9 @@ a:active {
 /*Responsive*/
 
  @media screen and (min-width:1600px) {
+  #next2{
+    right:5%:;
+  }
    .popout {
      margin-right:0%;
    }
@@ -617,7 +620,7 @@ a:active {
      
     }
   .media-holder iframe {
-      transform: scale(1.3);
+      transform: scale(1.4);
       transform-origin: 0 0;
       padding-left:5%;
   }
@@ -640,9 +643,10 @@ a:active {
     font-size:1.2em;
   }
   close {
-    margin-top:5%;
+/*    margin-top:5%;
     margin-left:65%;
-    font-size:2em;
+    font-size:2em;*/
+    display:none;
   }
   .launch {
     font-size:4em;
