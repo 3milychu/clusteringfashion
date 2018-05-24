@@ -656,39 +656,7 @@ a:active {
   }
   }
 
-  @media screen and (min-width:768px) and (max-width:1100px) {
-    .header {
-      width:90%;
-    }
-    .header p {
-      font-size:1.5em;
-    }
-    .header h1 {
-      font-size:5em;
-      line-height:1em;
-    }
-    .title {
-      background-blend-mode: multiply;
-    }
-    .title button {
-      display:none;
-    }
-    .section {
-      height:100vh;
-    }
-    #century-section{
-      background-repeat:no-repeat;
-    }
-    .fashion {
-      width:60%;
-    }
-    .fashion h1{
-      font-size:5em;
-      line-height:1em;
-    }
-  }
-
-  @media screen and (max-width:767px) {
+  @media screen and (max-width:1100px) {
    body {
      width:90vh;
    }
