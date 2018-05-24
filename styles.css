@@ -692,7 +692,7 @@ a:active {
      display:none;
    }
    #CR .about {
-    margin-left: 70%;
+    margin-left: 75%;
    }
   .header{
     width:90%;
@@ -735,6 +735,7 @@ a:active {
   }
   #cluster-desc p{
     text-align:center;
+    font-size:3em;
   }
   .popout {
     display:none;
@@ -768,7 +769,7 @@ a:active {
     width:10%;
   }
   .about {
-    margin-left:75%;
+    margin-left:80%;
     width:auto;
     padding:3%;
     font-size:3em;
@@ -776,7 +777,7 @@ a:active {
   close {
     font-size:5em;
     margin-top:2%;
-    margin-left:78%;
+    margin-left:82%;
   }
   .media-holder {
     }
