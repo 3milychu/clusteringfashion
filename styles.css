@@ -682,6 +682,7 @@ a:active {
      font-size:2em;
    }
    .title {
+     height:100%;
      background-repeat:no-repeat;
      background-attachment:scroll!important;
      background-position: right bottom;
