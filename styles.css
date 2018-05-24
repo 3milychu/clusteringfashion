@@ -677,6 +677,7 @@ a:active {
    }
    .fashion {
      width:60%;
+     padding-top:15%;
    }
    .content h1 {
      font-size:5em;
@@ -692,10 +693,14 @@ a:active {
      background-size: auto 100%;
    }
    .title button {
-     position: absolute;
+     /*position: absolute;
      margin-top: -60%;
      font-size: 4em;
-     padding: 5%;
+     padding: 5%;*/
+     display:none;
+   }
+   .fashion button {
+    display:none;
    }
    #CR .about {
     margin-left: 75%;
