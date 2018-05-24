@@ -691,7 +691,9 @@ a:active {
    .title button {
      display:none;
    }
-  
+   #CR .about {
+    margin-left: 70%;
+   }
   .header{
     width:90%;
     height:100%;
@@ -766,7 +768,7 @@ a:active {
     width:10%;
   }
   .about {
-    margin-left:80%;
+    margin-left:75%;
     width:auto;
     padding:3%;
     font-size:3em;
@@ -774,7 +776,7 @@ a:active {
   close {
     font-size:5em;
     margin-top:2%;
-    margin-left:82%;
+    margin-left:78%;
   }
   .media-holder {
     }
