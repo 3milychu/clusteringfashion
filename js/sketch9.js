@@ -3,7 +3,9 @@ function setup() {
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
            $('#tutorial').hide();
            $('#clusters').hide();
-           $('#clusters-desc').hide();
+           $('#cluster-desc').hide();
+           $('#model-section').hide();
+           $('#scroll-post-1').hide();
            $('#mobile-cta').css("display", "inline");
     };
 
@@ -84,7 +86,6 @@ function getClusters() {
         .attr("alt", function(d){return d.Title +", " + d.objectBegin + ", " + d.Culture})
         .attr("title", function(d){return d.Title +", " + d.objectBegin + ", " + d.Culture})
         .attr("src",function(d) {return d.path;})
-        .exit();
 
 });
 
