@@ -10,6 +10,12 @@ function setup() {
            $('#mobile-cta').css("display", "block");
     };
 
+        if(/iPad/i.test(navigator.userAgent) ) {
+           $('h1').css("font-size", "5em");
+           $('p').css("font-size", "1.5em");
+           $('.popout-heading mark').css("font-size", "1.5em");
+    };
+
 	noCanvas();
 
 	getClusters();
