@@ -6,7 +6,8 @@ function setup() {
            $('#cluster-desc').hide();
            $('#model-section').hide();
            $('#scroll-post-1').hide();
-           $('#mobile-cta').css("display", "inline");
+            $('#map').hide();
+           $('#mobile-cta').css("display", "block");
     };
 
 	noCanvas();

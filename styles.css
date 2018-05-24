@@ -152,7 +152,6 @@ button:hover {
   height:100%;
   background-color:white;
   right:0;
-  top:5%;
   padding-right:5%;
 }
 .popout-heading {
@@ -512,6 +511,7 @@ a:active {
 
 #mobile-cta {
   display:none;
+  padding:10%;
 }
 
 .callout {
@@ -791,6 +791,7 @@ a:active {
     margin-left:82%;
   }
   .media-holder {
+    height:30vh;
     }
   .media-holder iframe {
     transform: scale(1.7);
