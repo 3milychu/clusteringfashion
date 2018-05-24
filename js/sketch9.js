@@ -2,6 +2,8 @@ function setup() {
 
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
            $('#tutorial').hide();
+           $('#clusters').hide();
+           $('#clusters-desc').hide();
            $('#mobile-cta').css("display", "inline");
     };
 
