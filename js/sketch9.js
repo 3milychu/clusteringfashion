@@ -1,12 +1,7 @@
 function setup() {
 
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-           $('#century-section').hide();
-           $('#century-clusters').hide();
-           $('#annotated-map').hide();
-           $('#CR').hide();
-           $('#UC').hide();
-           $('#XT').hide();
+           $('#tutorial').hide();
            $('#mobile-cta').css("display", "inline");
     };
 

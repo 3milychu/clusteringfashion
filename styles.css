@@ -661,16 +661,16 @@ a:active {
      width:100vh;
    }
    #model-section {
-     height:45vh;
+     height:100vh;
    }
    #century-section {
-     height:60vh;
+     height:100vh;
    }
    .content {
      background-repeat:no-repeat;
      background-attachment:scroll!important;
      background-position: right top;
-     background-size: 100% auto; 
+     background-size: auto 100%; 
    }
    .fashion {
      width:60%;
@@ -685,7 +685,7 @@ a:active {
      background-repeat:no-repeat;
      background-attachment:scroll!important;
      background-position: right bottom;
-     background-size: 100% auto;
+     background-size: auto 100%;
    }
    .title button {
      display:none;
@@ -693,7 +693,7 @@ a:active {
   
   .header{
     width:90%;
-    height:90%;
+    height:100%;
     background-color:black;
     opacity:0.8;
   }
