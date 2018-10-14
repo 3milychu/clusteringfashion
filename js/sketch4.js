@@ -27,6 +27,12 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
  
   json = json;
 
+      var yearMin = d3.min(json, function(d) { return d.objectBegin; });
+      console.log("The smallest year in the dataset is " + yearMin);
+
+      var yearMax = d3.max(json, function(d) { return d.objectBegin; });
+      console.log("The largest year in the dataset is " + yearMax);
+
   json = json.filter(function(d) { 
             return d.Title != "Title"});
 
@@ -130,7 +136,7 @@ function update() {
  
   // Append a circle
   nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 40 || 1.5; })
+      .attr("r", function(d) { return 0; })
       .style("fill", "#eee");
 
   // Append images
@@ -145,17 +151,18 @@ function update() {
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
           // Append details text
-          // .on( 'click', function (d) {
-          //     d3.select("h1").html(d.Title + " from cluster " + d.labels);  
-          //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-          //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-          //     d3.select("#featured").html("<img src='" + d.src + "'>"); 
-          //  })
+          .on( 'click', function (d) {
+              d3.select("h1").html(d.Title + " from cluster " + d.labels);  
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              d3.select("#featured").html("<img src='" + d.src + "'>"); 
+           })
 
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
               .transition()
+              .style("cursor", "pointer")
               .attr("x", function(d) { return -15;})
               .attr("y", function(d) { return -15;})
               .attr("height", 30)
@@ -175,6 +182,7 @@ function update() {
   var rollover = nodeEnter.append("svg:image")
         .attr("class", "nodeimage")
         .attr("xlink:href", function(d) { return d.src; })
+        .style("cursor", "pointer")
         .style("height","100px")
         .attr("x", x_browser -55)
         .attr("y", y_browser -70)

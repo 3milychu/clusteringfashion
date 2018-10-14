@@ -150,17 +150,18 @@ function update() {
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
           // Append details text
-          // .on( 'click', function (d) {
-          //     d3.select("h1").html(d.Title + " from cluster " + d.labels); 
-          //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-          //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-          //     // d3.select("#featured").html("<img src='" + d.src + "'>"); 
-          //  })
+          .on( 'click', function (d) {
+              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              // d3.select("#featured").html("<img src='" + d.src + "'>"); 
+           })
 
           .on( 'mouseenter', function() {
             // select element in current context
             d3.select( this )
               .transition()
+              .style("cursor", "pointer")
               .attr("x", function(d) { return -45;})
               .attr("y", function(d) { return -50;})
               .attr("height", 60)
@@ -180,6 +181,7 @@ function update() {
 
   var rollover = nodeEnter.append("svg:image")
         .attr("class", "nodeimage")
+        .style("cursor", "pointer")
         .attr("xlink:href", function(d) { return d.src; })
         .style("height","100px")
         .attr("x", x_browser -55)

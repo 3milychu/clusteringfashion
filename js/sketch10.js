@@ -148,12 +148,12 @@ function update() {
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
           // Append details text
-          // .on( 'click', function (d) {
-          //     d3.select("h1").html(d.Title + " from cluster " + d.labels); 
-          //     d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
-          //     d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
-          //     // d3.select("#featured").html("<img src='" + d.src + "'>"); 
-          //  })
+          .on( 'click', function (d) {
+              d3.select("h1").html(d.Title + " from cluster " + d.labels); 
+              d3.select("h2").html(d.objectBegin + ", " + d.Culture + "<br>" + d.Medium); 
+              d3.select("h3").html ("<a href='" + d.link + "' target=_blank>" + " Visit item"+ "</a>")
+              // d3.select("#featured").html("<img src='" + d.src + "'>"); 
+           })
 
           .on( 'mouseenter', function() {
             // select element in current context
@@ -161,6 +161,7 @@ function update() {
               .transition()
               .attr("x", function(d) { return -20;})
               .attr("y", function(d) { return -20;})
+              .style("cursor", "pointer")
               .attr("height", 50)
               .attr("width", 50);
           })
@@ -180,6 +181,7 @@ function update() {
         .attr("class", "nodeimage")
         .attr("xlink:href", function(d) { return d.src; })
         .style("height","100px")
+        .style("cursor", "pointer")
         .attr("x", x_browser -55)
         .attr("y", y_browser -70)
 

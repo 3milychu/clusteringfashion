@@ -2,8 +2,8 @@
 var tcBlack = "#130C0E";
 
 // rest of vars
-var w = 1500,
-    h = 1000,
+var w = 2000,
+    h = 2500,
     maxNodeSize = 1,
     x_browser = 20,
     y_browser = 25,
@@ -28,8 +28,10 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
   json = json;
 
   json = json.filter(function(d) { 
-            return (d.Title != "Title") & (d.labels == 1) 
-            & (d.objectBegin < 2000) & (d.objectBegin >= 1900)});
+            return (d.Title != "Title") & (d.labels != 49) & (d.labels != 40) &  (d.labels !=52)
+            & (d.labels != 15) & (d.labels != 32) & (d.labels != 0) & (d.labels != 30) & (d.labels != 34) 
+            & (d.labels != 11) & (d.labels != 47) & (d.labels != 51) & (d.labels != 22)  & (d.labels != 7)
+            & (d.labels != 38) & (d.labels != 41)  & (d.labels != 28) });
 
   // create children hierarchy json
 
@@ -94,10 +96,10 @@ function update() {
   force.nodes(nodes)
         .links(links)
         .gravity(0.05)
-    .charge(-500)
+    .charge(-70)
     .linkDistance(10)
     .friction(0.5)
-    .linkStrength(function(l, i) {return 1; })
+    .linkStrength(function(l, i) {return 2; })
     .size([w, h])
     .on("tick", tick)
         .start();
@@ -139,8 +141,8 @@ function update() {
         .attr("xlink:href",  function(d) { return d.path;})
         .attr("x", function(d) { return -5;})
         .attr("y", function(d) { return -5;})
-        .attr("height", 30)
-        .attr("width", 30);
+        .attr("height", 10)
+        .attr("width", 10);
   
   // make the image grow a little on mouse over and add the text details on click
   var setEvents = images
@@ -158,8 +160,8 @@ function update() {
               .transition()
               .attr("x", function(d) { return -10;})
               .attr("y", function(d) { return -10;})
-              .attr("height", 30)
-              .attr("width", 30);
+              .attr("height", 20)
+              .attr("width", 20);
           })
           // set back
           .on( 'mouseleave', function() {
@@ -167,8 +169,8 @@ function update() {
               .transition()
               .attr("x", function(d) { return -5;})
               .attr("y", function(d) { return -5;})
-              .attr("height", 30)
-              .attr("width", 30);
+              .attr("height", 10)
+              .attr("width", 10);
           });
 
   // Append hero name on roll over next to the node as well
@@ -216,8 +218,8 @@ function tick() {
  * http://bl.ocks.org/mbostock/1129492
  */ 
 function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 5), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 5), d.y));
+  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
+    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
     return "translate(" + d.x + "," + d.y + ")";
    }
  
@@ -226,8 +228,8 @@ function nodeTransform(d) {
  */ 
 function click(d) {
   if (d.children) {
-    // d._children = d.children;
-    // d.children = null;
+    d._children = d.children;
+    d.children = null;
   } else {
     d.children = d._children;
     d._children = null;
