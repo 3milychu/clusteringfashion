@@ -38,7 +38,8 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
             & (d.labels != 24) & (d.labels != 46) & (d.labels != 3) & (d.labels != 29) & (d.labels != 28)
             & (d.labels != 54) & (d.labels != 4) & (d.labels != 11) & (d.labels != 5)
             & (d.labels != 16) & (d.labels != 42) & (d.Title != "Nightcap") & (d.Title != "Button")
-            & (d.Title != "Cap")& (d.Title != "Mitts")});
+            & (d.Title != "Cap")& (d.Title != "Mitts") & (d.path !="https://images.metmuseum.org/CRDImages/ci/mobile-large/24.442_CP4.jpg") &
+            (d.path!="https://raw.githubusercontent.com/3milychu/epochrunway/master/assets/png1/TSR%252026.56.47_CI50.40.9.JPG.png")});
 
   // create children hierarchy json
 
