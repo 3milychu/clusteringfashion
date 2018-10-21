@@ -60,19 +60,20 @@ function scrollState() {
 };
 
 function getClusters() {
-	d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json?nocache=123", function(data) {
+	d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/tutorial.json?nocache=123", function(data) {
 
   var format = d3.format("");
 
     data.forEach(function(d) {
         d.labels = format(d.labels);
+        d.path = d.path_y;
     });
  
 	data = data;
 
 			// Cluster 46
 			  samples = data.filter(function(d) { 
-			    	return (d.labels === "46" | d.labels === "29") & d.Title != "Title" });
+			    	return d.Title != "Title" });
 
 
 	samples = samples.sort(function(a, b) {
