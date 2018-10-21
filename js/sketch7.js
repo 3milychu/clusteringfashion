@@ -18,7 +18,7 @@ vis = d3.select("#vis")
   .attr("height", h)
   // .style('filter', 'url(#grayscale)');
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_19.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_19.json?nocache=123", function(json) {
 
   var format = d3.format("");
 

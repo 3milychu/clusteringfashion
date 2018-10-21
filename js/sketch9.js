@@ -60,7 +60,7 @@ function scrollState() {
 };
 
 function getClusters() {
-	d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json", function(data) {
+	d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json?nocache=123", function(data) {
 
   var format = d3.format("");
 

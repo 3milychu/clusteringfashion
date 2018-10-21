@@ -19,127 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="libraries/p5.js"></script>
     <script type="text/javascript" src="libraries/p5.dom.js"></script>
-    <script type="text/javascript" src="js/sketch9.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
-
-<!-- Scripts -->
-<script>
-  function getMap() {
-    document.getElementById("all-iframe").src = "all.html";
-  }
-
-  $("button").click(function(){
-    var iframe = $("#all-iframe");
-    iframe.attr("src", iframe.data("src")); 
-});
-
-  function showPopout1 () {
-    document.getElementById("popout1").style.display = "inline";
-  }
-
-  function closePopout1 () {
-    document.getElementById("popout1").style.display = "none";
-  }
-
-  function showPopout2 () {
-    document.getElementById("popout2").style.display = "inline";
-  }
-
-  function closePopout2 () {
-    document.getElementById("popout2").style.display = "none";
-  }
-
-   function showPopout3 () {
-    document.getElementById("popout3").style.display = "inline";
-  }
-
-  function closePopout3 () {
-    document.getElementById("popout3").style.display = "none";
-  }
-
-  function showPopout4 () {
-    document.getElementById("popout4").style.display = "inline";
-  }
-
-  function closePopout4 () {
-    document.getElementById("popout4").style.display = "none";
-  }
-
-  function showPopout5 () {
-    document.getElementById("popout5").style.display = "inline";
-  }
-
-  function closePopout5 () {
-    document.getElementById("popout5").style.display = "none";
-  }
-
-  function showPopout6 () {
-    document.getElementById("popout6").style.display = "inline";
-  }
-
-  function closePopout6 () {
-    document.getElementById("popout6").style.display = "none";
-  }
-
-  function showPopout7 () {
-    document.getElementById("popout7").style.display = "inline";
-  }
-
-  function closePopout7 () {
-    document.getElementById("popout7").style.display = "none";
-  }
-
-  function showPopout8 () {
-    document.getElementById("popout8").style.display = "inline";
-  }
-
-  function closePopout8 () {
-    document.getElementById("popout8").style.display = "none";
-  }
-
-  function scroll1() {
-    $('#scroll-post-1').stop().animate({
-      scrollLeft: $('#CR').offset().left
-    }, 500);
-    event.preventDefault();
-  }
-
-  function scroll2() {
-    $('#scroll-post-1').stop().animate({
-      scrollLeft: $('#UC')[0].offsetLeft
-    }, 500);
-    event.preventDefault();
-  }
-
-  function scroll3() {
-  $('#scroll-post-1').stop().animate({
-    scrollLeft: $('#XT')[0].offsetLeft
-  }, 500);
-  event.preventDefault();
-  };
-
-  function scroll4() {
-  $('#century-clusters').stop().animate({
-    scrollLeft: $('#17century').offset().left
-  }, 500);
-  event.preventDefault();
-  };
-
-  function scroll5() {
-  $('#century-clusters').stop().animate({
-    scrollLeft: $('#18century')[0].offsetLeft
-  }, 500);
-  event.preventDefault();
-  };
-
-   function scroll6() {
-  $('#century-clusters').stop().animate({
-    scrollLeft: $('#20century')[0].offsetLeft
-  }, 500);
-  event.preventDefault();
-  };
-
-</script>
 
 </head>
 <body>
@@ -151,7 +31,6 @@
       <div class="header">
          <p>A data visualization by <a href="https://3milychu.github.io" target="_blank">Emily Chu</a></p>
          <h1 style="font-family:Didot, serif;">Forms of Attraction: The Data Behind the Forms We Wear</h1>
-<!--          <mark><h4 style="display:inline;">Fashion + Data </h4></mark> -->
         <p >
         <br>
         This is a project that seeks to understand how popular forms in clothing originated from humble beginnings and gained momentum over time. Machine learning was used to extract form from images at the MET's Costume Institute. Items were then clustered with kmeans, a statistical model that can be used to train machines to predict the items that are most similar from the information given.</p>
@@ -422,7 +301,123 @@
   <p>Visit us on desktop for the complete summary of findings and full interactive experience.</p>
 </div>
 
+<!-- Scripts -->
+<script type="text/javascript" src="js/sketch9.js"></script>
 <script>
+  function getMap() {
+    document.getElementById("all-iframe").src = "all.html";
+  }
+
+  $("button").click(function(){
+    var iframe = $("#all-iframe");
+    iframe.attr("src", iframe.data("src")); 
+});
+
+  function showPopout1 () {
+    document.getElementById("popout1").style.display = "inline";
+  }
+
+  function closePopout1 () {
+    document.getElementById("popout1").style.display = "none";
+  }
+
+  function showPopout2 () {
+    document.getElementById("popout2").style.display = "inline";
+  }
+
+  function closePopout2 () {
+    document.getElementById("popout2").style.display = "none";
+  }
+
+   function showPopout3 () {
+    document.getElementById("popout3").style.display = "inline";
+  }
+
+  function closePopout3 () {
+    document.getElementById("popout3").style.display = "none";
+  }
+
+  function showPopout4 () {
+    document.getElementById("popout4").style.display = "inline";
+  }
+
+  function closePopout4 () {
+    document.getElementById("popout4").style.display = "none";
+  }
+
+  function showPopout5 () {
+    document.getElementById("popout5").style.display = "inline";
+  }
+
+  function closePopout5 () {
+    document.getElementById("popout5").style.display = "none";
+  }
+
+  function showPopout6 () {
+    document.getElementById("popout6").style.display = "inline";
+  }
+
+  function closePopout6 () {
+    document.getElementById("popout6").style.display = "none";
+  }
+
+  function showPopout7 () {
+    document.getElementById("popout7").style.display = "inline";
+  }
+
+  function closePopout7 () {
+    document.getElementById("popout7").style.display = "none";
+  }
+
+  function showPopout8 () {
+    document.getElementById("popout8").style.display = "inline";
+  }
+
+  function closePopout8 () {
+    document.getElementById("popout8").style.display = "none";
+  }
+
+  function scroll1() {
+    $('#scroll-post-1').stop().animate({
+      scrollLeft: $('#CR').offset().left
+    }, 500);
+    event.preventDefault();
+  }
+
+  function scroll2() {
+    $('#scroll-post-1').stop().animate({
+      scrollLeft: $('#UC')[0].offsetLeft
+    }, 500);
+    event.preventDefault();
+  }
+
+  function scroll3() {
+  $('#scroll-post-1').stop().animate({
+    scrollLeft: $('#XT')[0].offsetLeft
+  }, 500);
+  event.preventDefault();
+  };
+
+  function scroll4() {
+  $('#century-clusters').stop().animate({
+    scrollLeft: $('#17century').offset().left
+  }, 500);
+  event.preventDefault();
+  };
+
+  function scroll5() {
+  $('#century-clusters').stop().animate({
+    scrollLeft: $('#18century')[0].offsetLeft
+  }, 500);
+  event.preventDefault();
+  };
+
+   function scroll6() {
+  $('#century-clusters').stop().animate({
+    scrollLeft: $('#20century')[0].offsetLeft
+  }, 500);
+  event.preventDefault();
+  };
 
     // Smooth Scroll
 
@@ -450,8 +445,8 @@
       } // End if
     });
   });
-
 </script>
+
 
 </body>
 </html>

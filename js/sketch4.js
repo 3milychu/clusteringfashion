@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century.json?nocache=123", function(json) {
 
   var format = d3.format("");
 
@@ -27,14 +27,14 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
  
   json = json;
 
-      var yearMin = d3.min(json, function(d) { return d.objectBegin; });
+  json = json.filter(function(d) { 
+            return (d.Title != "Title") & (d.objectBegin != "objectBegin")});
+
+        var yearMin = d3.min(json, function(d) { return d.objectBegin; });
       console.log("The smallest year in the dataset is " + yearMin);
 
       var yearMax = d3.max(json, function(d) { return d.objectBegin; });
       console.log("The largest year in the dataset is " + yearMax);
-
-  json = json.filter(function(d) { 
-            return d.Title != "Title"});
 
   // create children hierarchy json
 
@@ -70,7 +70,7 @@ json.forEach(function(d){
 });
 
   // 
-  console.log(newData);
+  // console.log(newData);
  
   root = newData;
   root.fixed = true;

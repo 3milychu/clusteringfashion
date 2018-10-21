@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/footwear.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/footwear.json?nocache=123", function(json) {
 
   var format = d3.format("");
 

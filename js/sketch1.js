@@ -68,7 +68,7 @@ json.forEach(function(d){
 });
 
   // 
-  console.log(newData);
+  // console.log(newData);
  
   root = newData;
   root.fixed = true;

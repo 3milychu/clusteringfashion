@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/model_clusters.json?nocache=123", function(json) {
 
   var format = d3.format("");
 
@@ -29,7 +29,7 @@ d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/ma
 
   json = json.filter(function(d) { 
             return (d.labels === "17") & (d.Title != "Title") & (d.Title != "Dress") &  (d.Title != "Coat")
-            & (d.src != "61.173.10_CP4.jpg") });
+            & (d.src != "https://images.metmuseum.org/CRDImages/ci/mobile-large/61.173.10_CP4.jpg") });
 
   // create children hierarchy json
 
@@ -68,7 +68,7 @@ json.forEach(function(d){
 });
 
   // 
-  console.log(newData);
+  // console.log(newData);
  
   root = newData;
   root.fixed = true;

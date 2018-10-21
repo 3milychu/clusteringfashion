@@ -17,7 +17,7 @@ vis = d3.select("#vis")
   .attr("width", w)
   .attr("height", h);
  
-d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_17.json", function(json) {
+d3.json("https://media.githubusercontent.com/media/3milychu/clusteringfashion/master/assets/century_17.json?nocache=123", function(json) {
 
   var format = d3.format("");
 
@@ -64,7 +64,7 @@ json.forEach(function(d){
 });
 
   // 
-  console.log(newData);
+  // console.log(newData);
  
   root = newData;
   root.fixed = true;
